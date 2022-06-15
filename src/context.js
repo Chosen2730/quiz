@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 1, second);
+  const future = new Date(year, month, date, hour, minute + 3, second);
 
   useEffect(() => {
     const interval = setInterval(() => {

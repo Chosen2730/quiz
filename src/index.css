@@ -126,12 +126,15 @@ code {
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin: 1rem 0;
+  width: 100%;
 }
 .subject_header h6 {
   background-color: var(--clr-background);
   border-radius: 5px;
   text-align: center;
   padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 0.8rem;
 }
 .button_container {
   display: grid;
