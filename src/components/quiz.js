@@ -17,7 +17,7 @@ const Quiz = () => {
   return (
     <main className='quiz'>
       <div className='quiz_header'>
-        <h5 className='exam_progress'>Exam is now in Progress...</h5>
+        <h5 className='exam_progress'>in Progress...</h5>
         <div className='timer'>
           <i>
             <BiTimeFive />
@@ -40,13 +40,12 @@ const Quiz = () => {
       <div className='button_container'>
         <button className='prev' onClick={() => handleIndex("prev")}>
           <BiSkipPrevious className='nxtprev' />
-          Previous{" "}
         </button>
         <button className='submit_exam' onClick={submitExam}>
-          Submit Exam
+          Submit
         </button>
         <button className='next' onClick={() => handleIndex("next")}>
-          Next <BiSkipNext className='nxtprev' />
+          <BiSkipNext className='nxtprev' />
         </button>
       </div>
       {/* <div className='page_btn_container'>

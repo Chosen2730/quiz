@@ -20,7 +20,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 4, second);
+  const future = new Date(year, month, date, hour, minute + 1, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [quiz]);
 
   const handleSubmit = (e) => {
     if (accessCode) {
@@ -93,14 +93,9 @@ const AppProvider = ({ children }) => {
 
   const submitExam = () => {
     showResult(true);
+    setTime({ min: 0, sec: 0 });
   };
 
-  const logout = () => {
-    showResult(false);
-    setCorrect(0);
-    setIndex(0);
-    setAccess(true);
-  };
   return (
     <AppContext.Provider
       value={{
@@ -117,9 +112,9 @@ const AppProvider = ({ children }) => {
         value,
         result,
         submitExam,
-        logout,
         correct,
         time,
+        English,
       }}
     >
       {children}

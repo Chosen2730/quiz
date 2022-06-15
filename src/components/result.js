@@ -1,6 +1,6 @@
 import { useGlobalContext } from "./../context";
 const Result = () => {
-  const { logout, index, correct } = useGlobalContext();
+  const { index, correct, English } = useGlobalContext();
 
   return (
     <main className='result'>
@@ -11,14 +11,16 @@ const Result = () => {
           <span>{((correct / (index + 1)) * 100).toFixed(0)}%</span>{" "}
         </div>
         <div className='disp_result'>
+          <h5>Total Questions:</h5> <span>{English.length}</span>{" "}
+        </div>
+        <div className='disp_result'>
           <h5>Correct Answers:</h5> <span>{correct}</span>{" "}
         </div>
         <div className='disp_result'>
-          <h5>Incorrect Answers:</h5> <span>{index - correct + 1}</span>{" "}
+          <h5>Incorrect Answers:</h5> <span>{English.length - correct}</span>{" "}
         </div>
-
-        <button className='end_exam' onClick={logout}>
-          End Exam
+        <button className='end_exam'>
+          <a href=''>End Exam</a>
         </button>
       </div>
     </main>

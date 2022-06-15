@@ -134,11 +134,10 @@ code {
   padding: 0.5rem 1rem;
 }
 .button_container {
-  display: flex;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10%;
   margin: 1rem auto;
-  justify-content: space-between;
 }
 .prev,
 .next,
@@ -150,15 +149,12 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.85rem;
 }
 .submit_exam {
   background-color: var(--dark);
   padding: 1rem;
-  width: 30%;
   border-radius: 10px;
-}
-.next {
-  /* margin-left: auto; */
 }
 .nxtprev {
   color: #fff;
@@ -233,6 +229,10 @@ code {
   text-align: center;
   border: none;
   padding: 0.5rem 1rem;
+}
+.end_exam a {
+  text-decoration: none;
+  color: #fff;
 }
 .result_box span {
   font-size: 2rem;
