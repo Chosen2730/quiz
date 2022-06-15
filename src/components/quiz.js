@@ -1,7 +1,19 @@
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
+import { useGlobalContext } from "./../context";
+import Result from "./result";
 import Question from "./question";
+
 const Quiz = () => {
+  const { handleIndex, result, submitExam, time } = useGlobalContext();
+  const { min, sec } = time;
+
+  const checkTime = (n) => {
+    if (n < 10) {
+      return `0${n}`;
+    } else return n;
+  };
+
   return (
     <main className='quiz'>
       <div className='quiz_header'>
@@ -10,7 +22,9 @@ const Quiz = () => {
           <i>
             <BiTimeFive />
           </i>
-          <p>00:00:00</p>
+          <p>
+            00:{checkTime(min)}:{checkTime(sec)}
+          </p>
         </div>
       </div>
       <div className='subject_header'>
@@ -24,15 +38,18 @@ const Quiz = () => {
         <Question />
       </div>
       <div className='button_container'>
-        <button className='prev'>
+        <button className='prev' onClick={() => handleIndex("prev")}>
           <BiSkipPrevious className='nxtprev' />
           Previous{" "}
         </button>
-        <button className='next'>
+        <button className='submit_exam' onClick={submitExam}>
+          Submit Exam
+        </button>
+        <button className='next' onClick={() => handleIndex("next")}>
           Next <BiSkipNext className='nxtprev' />
         </button>
       </div>
-      <div className='page_btn_container'>
+      {/* <div className='page_btn_container'>
         <button className='toggle_btn'>1</button>
         <button className='toggle_btn'>2</button>
         <button className='toggle_btn'>3</button>
@@ -41,8 +58,9 @@ const Quiz = () => {
         <button className='toggle_btn'>3</button>
         <button className='toggle_btn'>3</button>
         <button className='toggle_btn'>3</button>
-      </div>
-      <button className='submit_exam prev'>Submit Exam</button>
+      </div> */}
+
+      {result && <Result />}
     </main>
   );
 };
