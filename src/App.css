@@ -2,4 +2,11 @@
   .subject_header {
     grid-template-columns: repeat(3, 1fr);
   }
+  .result_box {
+    width: 80%;
+    color: var(--dark);
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+  }
 }

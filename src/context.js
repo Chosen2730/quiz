@@ -2,8 +2,8 @@ import { useState, createContext, useContext, useEffect } from "react";
 import { English } from "./question";
 const AppContext = createContext();
 const AppProvider = ({ children }) => {
-  const [access, setAccess] = useState(false);
-  const [quiz, setQuiz] = useState(true);
+  const [access, setAccess] = useState(true);
+  const [quiz, setQuiz] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
