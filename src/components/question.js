@@ -1,14 +1,15 @@
 import { English } from "./../question";
 import { useGlobalContext } from "./../context";
 const Question = () => {
-  const { index, checkAnswer, checkP, alert, value } = useGlobalContext();
-  const { inst, q, opt, ans } = English[index];
+  const { index, checkAnswer, checkP, alert, value, questions } =
+    useGlobalContext();
+  const { inst, q, opt, ans } = questions[index];
 
-  const options = ["A", "B", "C", "D"];
+  const options = ["A", "B", "C", "D", "E"];
 
   return (
     <main className='question'>
-      <p className='instruction'>INSTRUCTION: {inst}</p>
+      {inst && <p className='instruction'>INSTRUCTION: {inst}</p>}
       <div className='question_container' onClick={checkP}>
         <h5>{index + 1}. </h5>
         <div className='main_question'>

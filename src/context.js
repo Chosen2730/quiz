@@ -1,6 +1,15 @@
 import { useState, createContext, useContext, useEffect } from "react";
-import { English } from "./question";
+import { English, physics, chemistry, biology, maths } from "./question";
 const AppContext = createContext();
+const questions = [
+  ...English.slice(0, 10),
+  ...biology.slice(0, 10),
+  ...chemistry.slice(0, 10),
+  ...physics.slice(0, 10),
+  ...maths.slice(0, 10),
+];
+
+const ACCESS_CODE = "CJ22001";
 const AppProvider = ({ children }) => {
   const [access, setAccess] = useState(true);
   const [quiz, setQuiz] = useState(false);
@@ -12,6 +21,7 @@ const AppProvider = ({ children }) => {
   const [value, setValue] = useState("A");
   const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
+  const [isPermit, setIsPermit] = useState(false);
 
   const today = new Date();
   const year = today.getFullYear();
@@ -20,7 +30,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 3, second);
+  const future = new Date(year, month, date, hour, minute + 30, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,24 +47,27 @@ const AppProvider = ({ children }) => {
         setTime({ min, sec });
       }
     }, 1000);
-
     return () => clearInterval(interval);
   }, [quiz]);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (accessCode) {
-      e.preventDefault();
-      setAccess(false);
-      setQuiz(true);
+      if (accessCode === ACCESS_CODE) {
+        setAccess(false);
+        setQuiz(true);
+        setIsPermit(false);
+      } else {
+        setIsPermit(true);
+      }
     }
   };
 
   const checkIndex = (n) => {
     if (n < 0) {
       return 0;
-    } else if (n > English.length - 1) {
-      showResult(true);
-      return +English.length - 1;
+    } else if (n > questions.length - 1) {
+      return +questions.length - 1;
     } else return n;
   };
 
@@ -72,7 +85,7 @@ const AppProvider = ({ children }) => {
   };
 
   const checkAnswer = (crr, option, value) => {
-    if (crr === option) {
+    if (crr.toLowerCase() === option.toLowerCase()) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
@@ -81,25 +94,33 @@ const AppProvider = ({ children }) => {
     setValue(value);
   };
 
-  const checkP = (e) => {
-    // e.target.classList.remove("active");
-    // const target = e.target.classList.contains("que_p");
-    // if (target) {
-    //   if (e.target.classList.contains("active")) {
-    //     e.target.classList.toggle("active");
-    //   }
-    // }
-  };
-
   const submitExam = () => {
     showResult(true);
     setTime({ min: 0, sec: 0 });
+  };
+
+  const changeSubject = (sub) => {
+    let firstItem = English[0];
+    if (sub === "eng") {
+      firstItem = firstItem;
+    } else if (sub === "bio") {
+      firstItem = biology[0];
+    } else if (sub === "chm") {
+      firstItem = chemistry[0];
+    } else if (sub === "phy") {
+      firstItem = physics[0];
+    } else if (sub === "math") {
+      firstItem = maths[0];
+    }
+    const position = questions.indexOf(firstItem);
+    setIndex(position);
   };
 
   return (
     <AppContext.Provider
       value={{
         access,
+        changeSubject,
         quiz,
         accessCode,
         setAccessCode,
@@ -107,7 +128,6 @@ const AppProvider = ({ children }) => {
         index,
         handleIndex,
         checkAnswer,
-        checkP,
         alert,
         value,
         result,
@@ -115,6 +135,13 @@ const AppProvider = ({ children }) => {
         correct,
         time,
         English,
+        biology,
+        chemistry,
+        physics,
+        maths,
+        questions,
+        setIndex,
+        isPermit,
       }}
     >
       {children}

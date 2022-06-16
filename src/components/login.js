@@ -1,7 +1,8 @@
 import logo from "./../images/logo.png";
 import { useGlobalContext } from "./../context";
 const Login = () => {
-  const { name, handleSubmit, accessCode, setAccessCode } = useGlobalContext();
+  const { name, handleSubmit, accessCode, setAccessCode, isPermit } =
+    useGlobalContext();
   return (
     <main className='login'>
       <div className='header_cont'>
@@ -17,10 +18,11 @@ const Login = () => {
           <input type='text' placeholder='Your name' />
           <input
             value={accessCode}
-            onChange={(e) => setAccessCode(e.target.value)}
+            onChange={(e) => setAccessCode(e.target.value.toUpperCase())}
             type='text'
             placeholder='access code'
           />
+          {isPermit && <p>Invalid Access code</p>}
           <input
             onClick={handleSubmit}
             className='login_btn'

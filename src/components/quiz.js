@@ -5,7 +5,20 @@ import Result from "./result";
 import Question from "./question";
 
 const Quiz = () => {
-  const { handleIndex, result, submitExam, time } = useGlobalContext();
+  const {
+    handleIndex,
+    result,
+    submitExam,
+    time,
+    questions,
+    index,
+    changeSubject,
+    English,
+    biology,
+    chemistry,
+    physics,
+    maths,
+  } = useGlobalContext();
   const { min, sec } = time;
 
   const checkTime = (n) => {
@@ -14,52 +27,93 @@ const Quiz = () => {
     } else return n;
   };
 
+  const sub = ["eng", "bio", "chm", "phy", "math"];
+
+  const width = ((index + 1) / questions.length) * 100;
+
   return (
     <main className='quiz'>
-      <div className='quiz_header'>
-        <h5 className='exam_progress'>in Progress...</h5>
-        <div className='timer'>
-          <i>
-            <BiTimeFive />
-          </i>
-          <p>
-            00:{checkTime(min)}:{checkTime(sec)}
-          </p>
+      <article className='main_quiz'>
+        <div className='quiz_header'>
+          <h3 className='exam_progress'>
+            {index < 10
+              ? "English"
+              : index < 20
+              ? "Biology"
+              : index < 30
+              ? "Chemistry"
+              : index < 40
+              ? "Physics"
+              : index < 50
+              ? "Mathematics"
+              : ""}
+          </h3>
+          <div className='timer'>
+            <i>
+              <BiTimeFive />
+            </i>
+            <p>
+              00:{checkTime(min)}:{checkTime(sec)}
+            </p>
+          </div>
         </div>
-      </div>
-      <div className='subject_header'>
-        <h6>English</h6>
-        <h6>Biology</h6>
-        <h6>Chemistry</h6>
-        <h6>Physics</h6>
-        <h6>Mathematics</h6>
-      </div>
-      <div className='question_body'>
-        <Question />
-      </div>
-      <div className='button_container'>
-        <button className='prev' onClick={() => handleIndex("prev")}>
-          <BiSkipPrevious className='nxtprev' />
-        </button>
-        <button className='submit_exam' onClick={submitExam}>
-          Submit
-        </button>
-        <button className='next' onClick={() => handleIndex("next")}>
-          <BiSkipNext className='nxtprev' />
-        </button>
-      </div>
-      {/* <div className='page_btn_container'>
-        <button className='toggle_btn'>1</button>
-        <button className='toggle_btn'>2</button>
-        <button className='toggle_btn'>3</button>
-        <button className='toggle_btn'>3</button>
-        <button className='toggle_btn'>3</button>
-        <button className='toggle_btn'>3</button>
-        <button className='toggle_btn'>3</button>
-        <button className='toggle_btn'>3</button>
+        {/* <p>Progress bar</p> */}
+        <div className='quiz_head'>
+          <div className='dash'>
+            <div
+              style={{
+                backgroundColor: "green",
+                height: "10px",
+                width: `${width}%`,
+                borderRadius: "0 100px 100px 0",
+              }}
+            ></div>
+          </div>
+          <button className='submit_exam' onClick={submitExam}>
+            Submit Exam
+          </button>
+        </div>
+        <div className='subject_header'>
+          {sub.map((subject, i) => {
+            return (
+              <h6 onClick={() => changeSubject(subject)} key={i}>
+                {subject}
+              </h6>
+            );
+          })}
+        </div>
+        <div className='question_body'>
+          <Question />
+        </div>
+        <div className='button_container'>
+          <button className='prev' onClick={() => handleIndex("prev")}>
+            <BiSkipPrevious className='nxtprev' />
+          </button>
+          <p>{`${index + 1} / ${questions.length}`}</p>
+          <button className='next' onClick={() => handleIndex("next")}>
+            <BiSkipNext className='nxtprev' />
+          </button>
+        </div>
+        {/* <div className='page_btn_container'>
+        {questions.map((q, i) => {
+          return (
+            <button
+              key={i}
+              // className='active toggle_btn'
+              className={index === i ? "toggle_btn active" : "toggle_btn"}
+            ></button>
+          );
+        })}
       </div> */}
 
-      {result && <Result />}
+        {result && <Result />}
+      </article>
+      <footer>
+        <p>
+          Proudly built by{" "}
+          <a href='https://simonir.netlify.app/'>Robinson Simon I.</a>
+        </p>
+      </footer>
     </main>
   );
 };

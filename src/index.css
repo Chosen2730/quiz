@@ -97,8 +97,13 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   color: var(--white);
-  padding: 2%;
+}
+.main_quiz {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 .quiz_header {
   display: flex;
@@ -112,7 +117,7 @@ code {
 .timer {
   background-color: var(--primary-color);
   color: var(--white);
-  padding: 0.5rem 2rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,10 +142,9 @@ code {
   font-size: 0.8rem;
 }
 .button_container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10%;
-  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+  /* margin: 1rem auto; */
 }
 .prev,
 .next,
@@ -155,7 +159,7 @@ code {
   font-size: 0.85rem;
 }
 .submit_exam {
-  background-color: var(--dark);
+  background-color: green;
   padding: 1rem;
   border-radius: 10px;
 }
@@ -165,18 +169,31 @@ code {
 }
 .page_btn_container {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(30, 1fr);
   gap: 0.5rem;
   margin: 1rem 0;
+  /* width: 100%; */
+  margin-right: auto;
 }
 .toggle_btn {
   background-color: #9eb6bf;
   color: var(--black);
   border: none;
-  padding: 0.5rem;
+  padding: 0.1rem;
+}
+.active {
+  /* background-color: var(--clr-background); */
+  background-color: red;
+}
+.dash {
+  height: 10px;
+  background-color: var(--dark);
+  width: 100%;
+  margin: 2rem 0;
 }
 .question_body {
   margin: 2rem 0;
+  width: 100%;
 }
 .question_container {
   display: grid;
@@ -186,26 +203,25 @@ code {
 .que {
   font-size: 1.5rem;
   font-weight: 400;
-  text-transform: none;
+  text-transform: capitalize;
 }
 .que_p {
   margin: 1rem 0;
   padding: 0.5rem 1rem;
   background-color: transparent;
+  text-transform: capitalize;
 }
-.active {
-  background-color: var(--clr-background);
-}
+
 .main_question p:hover {
   background-color: var(--clr-background);
 }
 .instruction {
   margin: 1rem 0;
   font-size: 0.9rem;
-  color: grey;
+  color: var(--white);
 }
 .value {
-  color: var(--primary-color);
+  color: green;
 }
 .result {
   position: fixed;
@@ -245,4 +261,20 @@ code {
   display: grid;
   grid-template-columns: 0.7fr 0.3fr;
   align-items: center;
+}
+footer {
+  /* position: fixed;
+  bottom: 0; */
+  width: 100%;
+  background-color: var(--black);
+  text-align: center;
+  padding: 1rem;
+}
+footer p {
+  font-size: 0.8rem;
+}
+footer a {
+  text-decoration: none;
+  color: #d61c4e;
+  text-transform: uppercase;
 }
