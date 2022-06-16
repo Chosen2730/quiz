@@ -103,7 +103,7 @@ code {
 .main_quiz {
   width: 90%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
 }
 .quiz_header {
   display: flex;
@@ -195,6 +195,9 @@ code {
   margin: 2rem 0;
   width: 100%;
 }
+.question {
+  width: 100%;
+}
 .question_container {
   display: grid;
   grid-template-columns: 0.1fr 0.9fr;
@@ -263,8 +266,8 @@ code {
   align-items: center;
 }
 footer {
-  /* position: fixed;
-  bottom: 0; */
+  position: fixed;
+  bottom: 0;
   width: 100%;
   background-color: var(--black);
   text-align: center;
