@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     setIsPermit(false);
     setQuiz(true);
-    navigate("/quiz");
+    navigate("/");
     setAccessCode("");
   };
   return (
