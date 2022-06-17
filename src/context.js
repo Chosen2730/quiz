@@ -25,8 +25,8 @@ const math = getRandomQuestions(maths).slice(0, 5);
 const questions = [...eng, ...bio, ...chm, ...phy, ...math];
 
 const AppProvider = ({ children }) => {
-  const [access, setAccess] = useState(true);
-  const [quiz, setQuiz] = useState(false);
+  const [access, setAccess] = useState(!true);
+  const [quiz, setQuiz] = useState(!false);
   const [accessCode, setAccessCode] = useState("");
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
