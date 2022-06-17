@@ -1,6 +1,6 @@
 import { useGlobalContext } from "./../context";
 const Result = () => {
-  const { correct, questions, time, logout } = useGlobalContext();
+  const { index, correct, questions, time, logout } = useGlobalContext();
   const { min, sec } = time;
 
   return (
@@ -26,7 +26,9 @@ const Result = () => {
         <p>
           Would you like to have access to more questions like this in order to
           prepare well for your exam?{" "}
-          {/* <a href='https://wa.me/2348132157321'>Click here to subscribe</a>{" "} */}
+          <a href='https://api.whatsapp.com/send?phone=8132157321&text=Hi%20Chosen,%20I%20would%20like%20to%20subscribe%20to%20your%20quiz%20app%20so%20I%20can%20have%20access%20to%20more%20questions'>
+            Click here to subscribe
+          </a>{" "}
         </p>
         <button className='end_exam' onClick={logout}>
           <a href=''>End Exam</a>
