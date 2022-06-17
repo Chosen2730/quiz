@@ -3,7 +3,7 @@ const synonyms =
 const antonyms =
   "Choose the word that is OPPOSITE IN MEANING to the block letter word";
 const interprete =
-  "Choose the best interpretation for the sentence among the options";
+  "Choose the BEST INTERPRETATION for the sentence among the options";
 const fill = "Fill in the gap with the most appropriate word";
 export const English = [
   {
@@ -365,7 +365,7 @@ export const physics = [
     ans: "68°F",
   },
   {
-    q: " An object is positioned between two plain mirrors inclined at right angle to each other.The object is 1 units distance from each mirror the number of images form is  ",
+    q: "An object is positioned between two plain mirrors inclined at right angle to each other.The object is 1 units distance from each mirror the number of images form is",
     opt: ["1", "2", "3", "4"],
     ans: "3",
   },
@@ -373,14 +373,14 @@ export const physics = [
     q: "the visible part of lights consists of the following colors",
     opt: [
       "red, indigo, infra-red, violet, yellow, green and blue",
-      "Red,green,blue,violet,indigo,orange and yellow",
-      "blue,ultra-violet,infra-red,red,yellow,indigo,violet,green and orange",
-      "blue,red,pink,green,orange,purple, yellow",
+      "Red, green, blue, violet, indigo, orange and yellow",
+      "blue, ultra-violet, infra-red, red, yellow, indigo, violet, green and orange",
+      "blue, red, pink, green, orange, purple, yellow",
     ],
-    ans: "Red,green,blue,violet,indigo,orange and yellow",
+    ans: "Red, green, blue, violet, indigo, orange and yellow",
   },
   {
-    q: "An object moves with uniform speed Round a circle ,it’s acceleration has",
+    q: "An object moves with uniform speed Round a circle, it’s acceleration has",
     opt: [
       "Constant direction and magnitude ",
       "Constant magnitude and varying direction",
@@ -485,7 +485,7 @@ export const physics = [
     ans: "interference",
   },
   {
-    q: "Light of velocity 3.0*10^8m/s is incident on a material of refractive index n . If the velocity of light is reduced to 2.4*10^8m/s in the material ,what is n ?",
+    q: "Light of velocity 3.0*10^8m/s is incident on a material of refractive index n. If the velocity of light is reduced to 2.4*10^8m/s in the material ,what is n ?",
     opt: [".2.33", "2.25", "1.33 ", "1.25"],
     ans: "1.25",
   },
@@ -655,7 +655,7 @@ export const biology = [
     ans: "Locomotion",
   },
   {
-    q: "__ involves the study of external features of plants and animals",
+    q: "__________ involves the study of external features of plants and animals",
     opt: ["Anatomy", "Morphology", "Physiology", "Genetics"],
     ans: "Morphology",
   },
@@ -665,7 +665,7 @@ export const biology = [
     ans: "4",
   },
   {
-    q: "The smallest unit of living organism is__",
+    q: "The smallest unit of living organism is_________",
     opt: ["cell", "tissue", "organ", "organism"],
     ans: "cell",
   },
@@ -685,7 +685,7 @@ export const biology = [
     ans: "species",
   },
   {
-    q: "In Binomial system of nomenclature, the first name is ______ and it's always begins with a capital letter while the second name is ______ and begins with small letter",
+    q: "In Binomial system of nomenclature, the first name is _________ and it's always begins with a capital letter while the second name is _________ and begins with small letter",
     opt: [
       "genetic name and specimen name",
       "specific name and genetic name",
@@ -695,7 +695,7 @@ export const biology = [
     ans: "generic name and specific name",
   },
   {
-    q: "The scientific name of cocoa is __",
+    q: "The scientific name of cocoa is _______",
     opt: ["zea mays", "oryza sativa", "citrus sinesis", "theobroma cacao"],
     ans: "theobroma cacao",
   },
@@ -748,18 +748,18 @@ export const maths = [
     ans: "1.00008×10^7",
   },
   {
-    q: "Evaluate 11011+11110 base two ",
+    q: "Evaluate 11011 + 11110 base two ",
     opt: ["111010", "111001", "110001", "101001", "100011"],
     ans: "111001",
   },
   {
     q: "A group of market women sell at least one of yam, plantain and maize. 12 of them sell maize, 10 sell yam and 14 sell plantain. 5 sell plantain and maize, 4 sell yam and maize, 2 sell yam and plantain only while 3 sell all the three items. How many women are in the group?",
-    opt: [" 25", "19", "18", "17"],
+    opt: ["25", "19", "18", "17"],
     ans: "25",
   },
 
   {
-    q: "Find the value of X if 2√x+2√=1x−2√",
+    q: "Find the value of X if 2√x + 2√2 = 1x − 2√2",
     opt: [" 3√2+4", "3√2-4", "3-2√2", "4+2√2"],
     ans: "3√2+4",
   },
@@ -787,7 +787,7 @@ export const maths = [
     ans: "-2/3",
   },
   {
-    q: "Factorize completely x2+2xy+y2+3x+3y−18.",
+    q: "Factorize completely x2 + 2xy + y2 + 3x + 3y − 18.",
     opt: [
       "(x+y+6)(x+y-3)",
       "(x-y-6)(x-y+3)",
