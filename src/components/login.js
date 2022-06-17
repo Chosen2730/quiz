@@ -6,21 +6,18 @@ const Login = () => {
   const { name, accessCode, setAccessCode, changeAccess, setQuiz } =
     useGlobalContext();
   const [isPermit, setIsPermit] = useState(false);
-  const ACCESS_CODE = "2022001";
+  // const ACCESS_CODE = "2022001";
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (accessCode) {
-      if (accessCode === ACCESS_CODE) {
-        setIsPermit(false);
-        setQuiz(true);
-        navigate("/quiz");
-        setAccessCode("");
-      } else {
-        setIsPermit(true);
-        return;
-      }
+      setIsPermit(false);
+      setQuiz(true);
+      navigate("/quiz");
+      setAccessCode("");
+    } else {
+      setIsPermit(true);
     }
   };
   return (
