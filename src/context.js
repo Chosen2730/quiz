@@ -33,7 +33,7 @@ const AppProvider = ({ children }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [alert, showAlert] = useState(false);
   const [value, setValue] = useState("");
-  const [result, showResult] = useState(!false);
+  const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
   const [isPermit, setIsPermit] = useState(false);
   const today = new Date();
