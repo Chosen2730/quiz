@@ -42,23 +42,23 @@ const AppProvider = ({ children }) => {
   const minute = today.getMinutes();
   const future = new Date(year, month, date, hour, minute + 18, second);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const endpoint = future.getTime();
-      const duration = endpoint - now;
-      if (duration < 0) {
-        setTime({ min: 0, sec: 0 });
-        showResult(true);
-      } else {
-        const oneMin = 1000 * 60;
-        const min = Math.floor(duration / oneMin);
-        const sec = Math.floor((duration % oneMin) / 1000);
-        setTime({ min, sec });
-      }
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [quiz]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     const now = new Date().getTime();
+  //     const endpoint = future.getTime();
+  //     const duration = endpoint - now;
+  //     if (duration < 0) {
+  //       setTime({ min: 0, sec: 0 });
+  //       showResult(true);
+  //     } else {
+  //       const oneMin = 1000 * 60;
+  //       const min = Math.floor(duration / oneMin);
+  //       const sec = Math.floor((duration % oneMin) / 1000);
+  //       setTime({ min, sec });
+  //     }
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [quiz]);
 
   const changeAccess = (e) => {
     const value = e.target.value;
