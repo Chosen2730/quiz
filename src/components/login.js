@@ -11,14 +11,10 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (accessCode) {
-      setIsPermit(false);
-      setQuiz(true);
-      navigate("/quiz");
-      setAccessCode("");
-    } else {
-      setIsPermit(true);
-    }
+    setIsPermit(false);
+    setQuiz(true);
+    navigate("/quiz");
+    setAccessCode("");
   };
   return (
     <main className='login'>
