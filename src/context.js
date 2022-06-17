@@ -25,8 +25,8 @@ const math = getRandomQuestions(maths).slice(0, 5);
 const questions = [...eng, ...bio, ...chm, ...phy, ...math];
 
 const AppProvider = ({ children }) => {
-  const [access, setAccess] = useState(!true);
-  const [quiz, setQuiz] = useState(!false);
+  const [access, setAccess] = useState(true);
+  const [quiz, setQuiz] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
@@ -45,23 +45,23 @@ const AppProvider = ({ children }) => {
   const minute = today.getMinutes();
   const future = new Date(year, month, date, hour, minute + 18, second);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     const now = new Date().getTime();
-  //     const endpoint = future.getTime();
-  //     const duration = endpoint - now;
-  //     if (duration < 0) {
-  //       setTime({ min: 0, sec: 0 });
-  //       showResult(true);
-  //     } else {
-  //       const oneMin = 1000 * 60;
-  //       const min = Math.floor(duration / oneMin);
-  //       const sec = Math.floor((duration % oneMin) / 1000);
-  //       setTime({ min, sec });
-  //     }
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const endpoint = future.getTime();
+      const duration = endpoint - now;
+      if (duration < 0) {
+        setTime({ min: 0, sec: 0 });
+        showResult(true);
+      } else {
+        const oneMin = 1000 * 60;
+        const min = Math.floor(duration / oneMin);
+        const sec = Math.floor((duration % oneMin) / 1000);
+        setTime({ min, sec });
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const changeAccess = (e) => {
     const value = e.target.value;
