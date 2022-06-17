@@ -33,7 +33,7 @@ const Quiz = () => {
       <article className='main_quiz'>
         <div className='quiz_header'>
           <h3 className='exam_progress'>
-            {index < questions.indexOf(eng.at(-1)) + 1
+            {/* {index < questions.indexOf(eng.at(-1)) + 1
               ? "English"
               : index < questions.indexOf(bio.at(-1)) + 1
               ? "Biology"
@@ -43,7 +43,7 @@ const Quiz = () => {
               ? "Physics"
               : index < questions.indexOf(math.at(-1)) + 1
               ? "Mathematics"
-              : ""}
+              : ""} */}
           </h3>
           <div className='timer'>
             <i>
