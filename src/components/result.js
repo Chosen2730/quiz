@@ -1,8 +1,12 @@
 import { useGlobalContext } from "./../context";
+import { useNavigate } from "react-router-dom";
 const Result = () => {
-  const { index, correct, questions, time, logout } = useGlobalContext();
+  const { index, correct, questions, time } = useGlobalContext();
   const { min, sec } = time;
-
+  const navigate = useNavigate();
+  const logout = () => {
+    navigate("/");
+  };
   return (
     <main className='result'>
       <div className='result_box'>

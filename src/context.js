@@ -1,7 +1,6 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
 const AppContext = createContext();
-const ACCESS_CODE = "2022001";
 
 const getRandomQuestions = (sub) => {
   let randomSub = [...sub],
@@ -25,7 +24,6 @@ const math = getRandomQuestions(maths).slice(0, 5);
 const questions = [...eng, ...bio, ...chm, ...phy, ...math];
 
 const AppProvider = ({ children }) => {
-  const [access, setAccess] = useState(true);
   const [quiz, setQuiz] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [index, setIndex] = useState(0);
@@ -35,7 +33,7 @@ const AppProvider = ({ children }) => {
   const [value, setValue] = useState("");
   const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
-  const [isPermit, setIsPermit] = useState(false);
+  // const [isPermit, setIsPermit] = useState(false);
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -61,23 +59,11 @@ const AppProvider = ({ children }) => {
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [quiz]);
 
   const changeAccess = (e) => {
     const value = e.target.value;
     setAccessCode(value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (accessCode) {
-      if (accessCode === ACCESS_CODE) {
-        setAccess(false);
-        setQuiz(true);
-        setIsPermit(false);
-      } else {
-        setIsPermit(true);
-      }
-    }
   };
 
   const checkIndex = (n) => {
@@ -135,12 +121,9 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        access,
         changeSubject,
-        quiz,
         accessCode,
         setAccessCode,
-        handleSubmit,
         index,
         handleIndex,
         checkAnswer,
@@ -157,8 +140,9 @@ const AppProvider = ({ children }) => {
         math,
         questions,
         setIndex,
-        isPermit,
         changeAccess,
+        quiz,
+        setQuiz,
       }}
     >
       {children}

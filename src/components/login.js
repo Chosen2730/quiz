@@ -1,14 +1,28 @@
 import logo from "./../images/logo.png";
+import { useState } from "react";
 import { useGlobalContext } from "./../context";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const {
-    name,
-    handleSubmit,
-    accessCode,
-    setAccessCode,
-    isPermit,
-    changeAccess,
-  } = useGlobalContext();
+  const { name, accessCode, setAccessCode, changeAccess, setQuiz } =
+    useGlobalContext();
+  const [isPermit, setIsPermit] = useState(false);
+  const ACCESS_CODE = "2022001";
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (accessCode) {
+      if (accessCode === ACCESS_CODE) {
+        setIsPermit(false);
+        setQuiz(true);
+        navigate("/quiz");
+        setAccessCode("");
+      } else {
+        setIsPermit(true);
+        return;
+      }
+    }
+  };
   return (
     <main className='login'>
       <div className='header_cont'>
