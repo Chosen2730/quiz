@@ -3,7 +3,7 @@ const synonyms =
 const antonyms =
   "Choose the word that is OPPOSITE IN MEANING to the block letter word";
 const interprete =
-  "Choose the best interpretation for the sentence among the options";
+  "Choose the BEST INTERPRETATION for the sentence among the options";
 const fill = "Fill in the gap with the most appropriate word";
 export const English = [
   {
