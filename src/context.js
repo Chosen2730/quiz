@@ -1,7 +1,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
 const AppContext = createContext();
-const ACCESS_CODE = "CJ22001";
+const ACCESS_CODE = "2022001";
 
 const getRandomQuestions = (sub) => {
   let randomSub = [...sub],
@@ -63,6 +63,10 @@ const AppProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [quiz]);
 
+  const changeAccess = (e) => {
+    const value = e.target.value;
+    setAccessCode(value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (accessCode) {
@@ -154,6 +158,7 @@ const AppProvider = ({ children }) => {
         questions,
         setIndex,
         isPermit,
+        changeAccess,
       }}
     >
       {children}
