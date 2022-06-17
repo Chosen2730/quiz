@@ -1,15 +1,29 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
 const AppContext = createContext();
-const questions = [
-  ...English.slice(0, 10),
-  ...biology.slice(0, 10),
-  ...chemistry.slice(0, 10),
-  ...physics.slice(0, 10),
-  ...maths.slice(0, 10),
-];
-
 const ACCESS_CODE = "CJ22001";
+
+const getRandomQuestions = (sub) => {
+  let randomSub = [...sub],
+    subject = [],
+    i = randomSub.length,
+    j = 0;
+
+  while (i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    subject.push(randomSub[j]);
+    randomSub.splice(j, 1);
+  }
+  return subject;
+};
+const eng = getRandomQuestions(English).slice(0, 10);
+const chm = getRandomQuestions(chemistry).slice(0, 5);
+const bio = getRandomQuestions(biology).slice(0, 5);
+const phy = getRandomQuestions(physics).slice(0, 5);
+const math = getRandomQuestions(maths).slice(0, 5);
+
+const questions = [...eng, ...bio, ...chm, ...phy, ...math];
+
 const AppProvider = ({ children }) => {
   const [access, setAccess] = useState(true);
   const [quiz, setQuiz] = useState(false);
@@ -18,7 +32,7 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
   const [alert, showAlert] = useState(false);
-  const [value, setValue] = useState("A");
+  const [value, setValue] = useState("");
   const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
   const [isPermit, setIsPermit] = useState(false);
@@ -30,7 +44,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 30, second);
+  const future = new Date(year, month, date, hour, minute + 20, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -100,17 +114,16 @@ const AppProvider = ({ children }) => {
   };
 
   const changeSubject = (sub) => {
-    let firstItem = English[0];
+    let firstItem = eng[0];
     if (sub === "eng") {
-      firstItem = firstItem;
     } else if (sub === "bio") {
-      firstItem = biology[0];
+      firstItem = bio[0];
     } else if (sub === "chm") {
-      firstItem = chemistry[0];
+      firstItem = chm[0];
     } else if (sub === "phy") {
-      firstItem = physics[0];
+      firstItem = phy[0];
     } else if (sub === "math") {
-      firstItem = maths[0];
+      firstItem = math[0];
     }
     const position = questions.indexOf(firstItem);
     setIndex(position);
@@ -134,11 +147,11 @@ const AppProvider = ({ children }) => {
         submitExam,
         correct,
         time,
-        English,
-        biology,
-        chemistry,
-        physics,
-        maths,
+        eng,
+        chm,
+        bio,
+        phy,
+        math,
         questions,
         setIndex,
         isPermit,

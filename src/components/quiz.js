@@ -1,5 +1,4 @@
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
-import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
 import { useGlobalContext } from "./../context";
 import Result from "./result";
 import Question from "./question";
@@ -13,11 +12,11 @@ const Quiz = () => {
     questions,
     index,
     changeSubject,
-    English,
-    biology,
-    chemistry,
-    physics,
-    maths,
+    eng,
+    chm,
+    bio,
+    phy,
+    math,
   } = useGlobalContext();
   const { min, sec } = time;
 
@@ -29,22 +28,20 @@ const Quiz = () => {
 
   const sub = ["eng", "bio", "chm", "phy", "math"];
 
-  const width = ((index + 1) / questions.length) * 100;
-
   return (
     <main className='quiz'>
       <article className='main_quiz'>
         <div className='quiz_header'>
           <h3 className='exam_progress'>
-            {index < 10
+            {index < questions.indexOf(eng.at(-1)) + 1
               ? "English"
-              : index < 20
+              : index < questions.indexOf(bio.at(-1)) + 1
               ? "Biology"
-              : index < 30
+              : index < questions.indexOf(chm.at(-1)) + 1
               ? "Chemistry"
-              : index < 40
+              : index < questions.indexOf(phy.at(-1)) + 1
               ? "Physics"
-              : index < 50
+              : index < questions.indexOf(math.at(-1)) + 1
               ? "Mathematics"
               : ""}
           </h3>
@@ -57,14 +54,14 @@ const Quiz = () => {
             </p>
           </div>
         </div>
-        {/* <p>Progress bar</p> */}
+
         <div className='quiz_head'>
           <div className='dash'>
             <div
               style={{
                 backgroundColor: "green",
                 height: "10px",
-                width: `${width}%`,
+                width: `${((index + 1) / questions.length) * 100}%`,
                 borderRadius: "0 100px 100px 0",
               }}
             ></div>
@@ -94,24 +91,13 @@ const Quiz = () => {
             <BiSkipNext className='nxtprev' />
           </button>
         </div>
-        {/* <div className='page_btn_container'>
-        {questions.map((q, i) => {
-          return (
-            <button
-              key={i}
-              // className='active toggle_btn'
-              className={index === i ? "toggle_btn active" : "toggle_btn"}
-            ></button>
-          );
-        })}
-      </div> */}
-
         {result && <Result />}
       </article>
       <footer>
         <p>
           Proudly built by{" "}
-          <a href='https://simonir.netlify.app/'>Robinson Simon I.</a>
+          <a href='https://simonir.netlify.app/'>Robinson Simon I.</a> for
+          students.
         </p>
       </footer>
     </main>

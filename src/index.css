@@ -275,6 +275,7 @@ footer {
 }
 footer p {
   font-size: 0.8rem;
+  text-transform: capitalize;
 }
 footer a {
   text-decoration: none;

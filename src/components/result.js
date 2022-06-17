@@ -1,6 +1,7 @@
 import { useGlobalContext } from "./../context";
 const Result = () => {
-  const { index, correct, questions } = useGlobalContext();
+  const { index, correct, questions, time } = useGlobalContext();
+  const { min, sec } = time;
 
   return (
     <main className='result'>
@@ -18,6 +19,9 @@ const Result = () => {
         </div>
         <div className='disp_result'>
           <h5>Incorrect Answers:</h5> <span>{questions.length - correct}</span>{" "}
+        </div>
+        <div className='disp_result'>
+          <h5>Time Remaining:</h5> <span>{`${min}:${sec}`}</span>{" "}
         </div>
         <button className='end_exam'>
           <a href=''>End Exam</a>

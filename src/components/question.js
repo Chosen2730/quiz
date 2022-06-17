@@ -1,8 +1,9 @@
-import { English } from "./../question";
 import { useGlobalContext } from "./../context";
+
 const Question = () => {
   const { index, checkAnswer, checkP, alert, value, questions } =
     useGlobalContext();
+
   const { inst, q, opt, ans } = questions[index];
 
   const options = ["A", "B", "C", "D", "E"];
@@ -16,20 +17,21 @@ const Question = () => {
           <h5 className='que'>{q}</h5>
           {opt.map((option, i) => {
             return (
-              <p
-                key={i}
-                className='que_p'
-                onClick={() => {
-                  checkAnswer(ans, option, options[i]);
-                }}
-              >
-                {options[i]}. {option}
-              </p>
+              <div className='option_div' key={i}>
+                <p
+                  className='que_p'
+                  onClick={() => {
+                    checkAnswer(ans, option, options[i]);
+                  }}
+                >
+                  {options[i]}. {option}
+                </p>
+              </div>
             );
           })}
           {alert && (
             <h6 className='value'>
-              Option {value} selected and saved, move to the next question
+              Option selected: "{value}", move to the next question
             </h6>
           )}
         </div>
