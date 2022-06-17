@@ -61,7 +61,7 @@ const AppProvider = ({ children }) => {
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [quiz]);
+  }, []);
 
   const changeAccess = (e) => {
     const value = e.target.value;
