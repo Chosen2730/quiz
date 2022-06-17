@@ -26,7 +26,7 @@ const Result = () => {
         <p>
           Would you like to have access to more questions like this in order to
           prepare well for your exam?{" "}
-          <a href='https://wa.me/2348132157321'>Click here to subscribe</a>{" "}
+          {/* <a href='https://wa.me/2348132157321'>Click here to subscribe</a>{" "} */}
         </p>
         <button className='end_exam' onClick={logout}>
           <a href=''>End Exam</a>
