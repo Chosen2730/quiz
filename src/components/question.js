@@ -25,7 +25,7 @@ const Question = () => {
                   key={i}
                   className='que_p '
                   onClick={() => {
-                    checkAnswer(ans, option, options[i]);
+                    checkAnswer(ans, option, options[i], q, index + 1);
                   }}
                 >
                   {options[i]}. {option}

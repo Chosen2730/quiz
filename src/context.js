@@ -39,6 +39,9 @@ const AppProvider = ({ children }) => {
   const [value, setValue] = useState("");
   const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
+  const [option, setOption] = useState({});
+  const [results, setResults] = useState([]);
+
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -80,9 +83,13 @@ const AppProvider = ({ children }) => {
   };
 
   const handleIndex = (action) => {
+    setValue("");
     if (action === "next") {
       setIndex(checkIndex(index + 1));
       showAlert(false);
+      if (value) {
+        setResults([...results, option]);
+      } else return;
       if (isCorrect) {
         setCorrect(correct + 1);
       }
@@ -92,16 +99,16 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const checkAnswer = (crr, option, value) => {
+  const checkAnswer = (crr, option, value, q, i) => {
     if (crr.toLowerCase() === option.toLowerCase()) {
       setIsCorrect(true);
     } else {
       setIsCorrect(false);
     }
+    setOption({ i, q, crr, option });
     showAlert(true);
     setValue(value);
   };
-
   const submitExam = () => {
     showResult(true);
     setTime({ min: 0, sec: 0 });
@@ -126,6 +133,7 @@ const AppProvider = ({ children }) => {
   const logout = (e) => {
     setQuiz(false);
     showResult(false);
+    setIndex(0);
     setCorrect("");
   };
 
@@ -156,6 +164,7 @@ const AppProvider = ({ children }) => {
         setQuiz,
         showResult,
         logout,
+        results,
       }}
     >
       {children}

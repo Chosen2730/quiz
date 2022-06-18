@@ -1,8 +1,16 @@
 import { useGlobalContext } from "./../context";
 import { useNavigate, Link } from "react-router-dom";
 const Result = () => {
-  const { index, correct, questions, time, setQuiz, showResult, logout } =
-    useGlobalContext();
+  const {
+    index,
+    correct,
+    questions,
+    time,
+    setQuiz,
+    showResult,
+    logout,
+    results,
+  } = useGlobalContext();
   const { min, sec } = time;
   const navigate = useNavigate();
 
@@ -33,6 +41,20 @@ const Result = () => {
             Click here to subscribe
           </a>{" "}
         </p>
+
+        <h2>Overview</h2>
+        {results.map((r) => {
+          const { q, crr, option, i } = r;
+          return (
+            <div key={i} className='result_cont'>
+              <p>
+                {i}. {q}
+              </p>
+              <p className='opt'>Your option: {option}</p>
+              <p className='crr'>Correct Ans: {crr}</p>
+            </div>
+          );
+        })}
 
         <Link to='/'>
           <button className='end_exam' onClick={logout}>
