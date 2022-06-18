@@ -282,7 +282,7 @@ code {
   color: #fff;
 }
 .result_box span {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--clr-background);
 }
 .result_cont {
