@@ -17,7 +17,7 @@ const Result = () => {
   return (
     <main className='result'>
       <div className='result_box'>
-        <h2>Here is your Result</h2>
+        <h2>your Result</h2>
         <div className='disp_result'>
           <h5>Score:</h5>{" "}
           <span>{((correct / (questions.length - 1)) * 100).toFixed(0)}%</span>{" "}
@@ -31,9 +31,9 @@ const Result = () => {
         <div className='disp_result'>
           <h5>Incorrect Answers:</h5> <span>{questions.length - correct}</span>{" "}
         </div>
-        <div className='disp_result'>
+        {/* <div className='disp_result'>
           <h5>Time Remaining:</h5> <span>{`${min}:${sec}`}</span>{" "}
-        </div>
+        </div> */}
         <p>
           Would you like to have access to more questions like this in order to
           prepare well for your exam?{" "}
