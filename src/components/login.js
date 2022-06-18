@@ -3,18 +3,28 @@ import { useState } from "react";
 import { useGlobalContext } from "./../context";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const { name, accessCode, setAccessCode, changeAccess, setQuiz } =
+  const { accessCode, setAccessCode, changeAccess, setQuiz, showResult } =
     useGlobalContext();
   const [isPermit, setIsPermit] = useState(false);
-  // const ACCESS_CODE = "2022001";
+  const ACCESS_CODE = "C/J22/001";
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    console.log(accessCode, ACCESS_CODE);
     e.preventDefault();
-    setIsPermit(false);
-    setQuiz(true);
-    navigate("/");
-    setAccessCode("");
+    showResult(false);
+    if (accessCode) {
+      if (accessCode === ACCESS_CODE) {
+        console.log(accessCode, ACCESS_CODE);
+        setIsPermit(false);
+        setQuiz(true);
+        navigate("/quiz");
+        setAccessCode("");
+      } else {
+        setIsPermit(true);
+        return;
+      }
+    }
   };
   return (
     <main className='login'>

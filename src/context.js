@@ -2,30 +2,30 @@ import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
 const AppContext = createContext();
 
-// const getRandomQuestions = (sub) => {
-//   let randomSub = [...sub],
-//     subject = [],
-//     i = randomSub.length,
-//     j = 0;
+const getRandomQuestions = (sub) => {
+  let randomSub = [...sub],
+    subject = [],
+    i = randomSub.length,
+    j = 0;
 
-//   while (i--) {
-//     j = Math.floor(Math.random() * (i + 1));
-//     subject.push(randomSub[j]);
-//     randomSub.splice(j, 1);
-//   }
-//   return subject;
-// };
-// const eng = getRandomQuestions(English).slice(0, 10);
-// const chm = getRandomQuestions(chemistry).slice(0, 5);
-// const bio = getRandomQuestions(biology).slice(0, 5);
-// const phy = getRandomQuestions(physics).slice(0, 5);
-// const math = getRandomQuestions(maths).slice(0, 5);
+  while (i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    subject.push(randomSub[j]);
+    randomSub.splice(j, 1);
+  }
+  return subject;
+};
+const eng = getRandomQuestions(English).slice(0, 10);
+const chm = getRandomQuestions(chemistry).slice(0, 5);
+const bio = getRandomQuestions(biology).slice(0, 5);
+const phy = getRandomQuestions(physics).slice(0, 5);
+const math = getRandomQuestions(maths).slice(0, 5);
 
-const eng = English.slice(0, 10);
-const chm = chemistry.slice(0, 5);
-const bio = biology.slice(0, 5);
-const phy = physics.slice(0, 5);
-const math = maths.slice(0, 5);
+// const eng = English.slice(0, 10);
+// const chm = chemistry.slice(0, 5);
+// const bio = biology.slice(0, 5);
+// const phy = physics.slice(0, 5);
+// const math = maths.slice(0, 5);
 
 const questions = [...eng, ...bio, ...chm, ...phy, ...math];
 
@@ -67,7 +67,7 @@ const AppProvider = ({ children }) => {
   }, [quiz]);
 
   const changeAccess = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.toUpperCase();
     setAccessCode(value);
   };
 
@@ -148,6 +148,7 @@ const AppProvider = ({ children }) => {
         changeAccess,
         quiz,
         setQuiz,
+        showResult,
       }}
     >
       {children}

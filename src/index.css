@@ -133,13 +133,16 @@ code {
   margin: 1rem 0;
   width: 100%;
 }
-.subject_header h6 {
+.sub {
   background-color: var(--clr-background);
   border-radius: 5px;
   text-align: center;
   padding: 0.5rem 1rem;
   width: 100%;
   font-size: 0.8rem;
+}
+.active_sub {
+  background-color: var(--primary-color);
 }
 .button_container {
   display: flex;
@@ -158,6 +161,7 @@ code {
   justify-content: center;
   font-size: 0.85rem;
 }
+
 .submit_exam {
   background-color: green;
   padding: 1rem;
@@ -214,7 +218,9 @@ code {
   background-color: transparent;
   text-transform: capitalize;
 }
-
+.active_p {
+  background-color: var(--primary-color);
+}
 .main_question p:hover {
   background-color: var(--clr-background);
 }

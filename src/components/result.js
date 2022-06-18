@@ -1,10 +1,14 @@
 import { useGlobalContext } from "./../context";
 import { useNavigate } from "react-router-dom";
 const Result = () => {
-  const { index, correct, questions, time } = useGlobalContext();
+  const { index, correct, questions, time, setQuiz, showResult } =
+    useGlobalContext();
   const { min, sec } = time;
   const navigate = useNavigate();
-  const logout = () => {
+  const logout = (e) => {
+    e.preventDefault();
+    setQuiz(false);
+    showResult(false);
     navigate("/");
   };
   return (

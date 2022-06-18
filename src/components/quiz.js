@@ -1,9 +1,28 @@
+import { useRef, useEffect } from "react";
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { useGlobalContext } from "./../context";
 import Result from "./result";
 import Question from "./question";
 
 const Quiz = () => {
+  const activeSub = useRef(null);
+
+  useEffect(() => {
+    const activeSubject = activeSub.current;
+    const subs = activeSubject.children;
+    Array.from(subs).forEach((sub) => {
+      sub.addEventListener("click", () => {
+        activeSubject.addEventListener("click", (e) => {
+          const currEvt = e.target;
+          if (currEvt === sub) {
+            sub.classList.add("active_sub");
+          } else {
+            sub.classList.remove("active_sub");
+          }
+        });
+      });
+    });
+  }, []);
   const {
     handleIndex,
     result,
@@ -27,23 +46,22 @@ const Quiz = () => {
   };
 
   const sub = ["eng", "bio", "chm", "phy", "math"];
-
   return (
     <main className='quiz'>
       <article className='main_quiz'>
         <div className='quiz_header'>
           <h3 className='exam_progress'>
-            {/* {index < questions.indexOf(eng.at(-1)) + 1
+            {index < questions.indexOf(eng[eng.length - 1]) + 1
               ? "English"
-              : index < questions.indexOf(bio.at(-1)) + 1
+              : index < questions.indexOf(bio[bio.length - 1]) + 1
               ? "Biology"
-              : index < questions.indexOf(chm.at(-1)) + 1
+              : index < questions.indexOf(chm[chm.length - 1]) + 1
               ? "Chemistry"
-              : index < questions.indexOf(phy.at(-1)) + 1
+              : index < questions.indexOf(phy[phy.length - 1]) + 1
               ? "Physics"
-              : index < questions.indexOf(math.at(-1)) + 1
+              : index < questions.indexOf(math[math.length - 1]) + 1
               ? "Mathematics"
-              : ""} */}
+              : ""}
           </h3>
           <div className='timer'>
             <i>
@@ -70,10 +88,14 @@ const Quiz = () => {
             Submit Exam
           </button>
         </div>
-        <div className='subject_header'>
+        <div className='subject_header' ref={activeSub}>
           {sub.map((subject, i) => {
             return (
-              <h6 onClick={() => changeSubject(subject)} key={i}>
+              <h6
+                className='sub'
+                onClick={() => changeSubject(subject)}
+                key={i}
+              >
                 {subject}
               </h6>
             );

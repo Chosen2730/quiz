@@ -1,6 +1,26 @@
 import { useGlobalContext } from "./../context";
+import { useRef, useEffect } from "react";
 
 const Question = () => {
+  const OPT = useRef(null);
+
+  // useEffect(() => {
+  //   const activeOption = OPT.current;
+  //   const opts = activeOption.children;
+  //   Array.from(opts).forEach((currOpt) => {
+  //     currOpt.addEventListener("click", () => {
+  //       activeOption.addEventListener("click", (e) => {
+  //         const currEvt = e.target;
+  //         if (currEvt === currOpt) {
+  //           currOpt.classList.add("active_p");
+  //         } else {
+  //           currOpt.classList.remove("active_p");
+  //         }
+  //       });
+  //     });
+  //   });
+  // }, []);
+
   const { index, checkAnswer, checkP, alert, value, questions } =
     useGlobalContext();
 
@@ -15,20 +35,21 @@ const Question = () => {
         <h5>{index + 1}. </h5>
         <div className='main_question'>
           <h5 className='que'>{q}</h5>
-          {opt.map((option, i) => {
-            return (
-              <div className='option_div' key={i}>
+          <div className='option_div' ref={OPT}>
+            {opt.map((option, i) => {
+              return (
                 <p
-                  className='que_p'
+                  key={i}
+                  className='que_p '
                   onClick={() => {
                     checkAnswer(ans, option, options[i]);
                   }}
                 >
                   {options[i]}. {option}
                 </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           {alert && (
             <h6 className='value'>
               Option selected: "{value}", move to the next question
