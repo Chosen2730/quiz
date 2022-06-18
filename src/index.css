@@ -261,11 +261,12 @@ code {
 }
 .result_box h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   color: var(--white);
   background: var(--dark);
   margin-top: 2rem;
+  padding: 1rem;
 }
 .end_exam {
   background-color: var(--primary-color);
