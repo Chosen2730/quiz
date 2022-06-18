@@ -10,12 +10,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log(accessCode, ACCESS_CODE);
     e.preventDefault();
     showResult(false);
     if (accessCode) {
       if (accessCode === ACCESS_CODE) {
-        console.log(accessCode, ACCESS_CODE);
         setIsPermit(false);
         setQuiz(true);
         navigate("/quiz");

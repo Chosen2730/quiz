@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
+import { MdAccessTime } from "react-icons/md";
 import { useGlobalContext } from "./../context";
 import Result from "./result";
 import Question from "./question";
@@ -65,7 +66,7 @@ const Quiz = () => {
           </h3>
           <div className='timer'>
             <i>
-              <BiTimeFive />
+              <MdAccessTime />
             </i>
             <p>
               00:{checkTime(min)}:{checkTime(sec)}

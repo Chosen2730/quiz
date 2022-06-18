@@ -123,6 +123,12 @@ const AppProvider = ({ children }) => {
     setIndex(position);
   };
 
+  const logout = (e) => {
+    setQuiz(false);
+    showResult(false);
+    setCorrect("");
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -149,6 +155,7 @@ const AppProvider = ({ children }) => {
         quiz,
         setQuiz,
         showResult,
+        logout,
       }}
     >
       {children}

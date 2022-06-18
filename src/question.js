@@ -796,4 +796,104 @@ export const maths = [
     ],
     ans: "(x+y+6)(x+y-3)",
   },
+  {
+    q: "Solve the inequality 2 – x > x^2  ",
+    opt: ["x < -2 or x > 1", "x > 2 or x < -1", "-1 < x < 2", "-2 > x < 1"],
+    ans: "-2 > x < 1",
+  },
+  {
+    q: "The third term of an A.P. is 4x – 2y and the 9th term is 10x – 8y. Find the common  difference. ",
+    opt: ["19x – 17y", "8x – 4y", "x – y", "2x"],
+    ans: "x – y",
+  },
+  {
+    q: "A man wishes to keep his money in a savings deposit at 25% compound interest so that after  three years he can buy a car for N150,000. How much does he need to deposit?  ",
+    opt: ["N112,000.50", "N96,000.00", "N85,714.28", "N76,800.00"],
+    ans: "N76,800.00",
+  },
+  {
+    q: "If (2√3 - √2 )/( √3 + 2√2 ) = m + n√6 , find the values of m and n respectively.  ",
+    opt: ["1, -2", "-2, 1", "−2/5, 1", "2, 3/5"],
+    ans: "-2, 1",
+  },
+  {
+    q: "Let P = {1, 2, u, v, w, x}; Q = {2, 3, u, v, w, 5, 6, y} and R = {2, 3, 4, v, x, y}.  Determine (P - Q) n R. ",
+    opt: ["{1, x}", "{x, y}", "{x}", "0"],
+    ans: "{x}",
+  },
+  {
+    q: "A two-digit number, say AB was mistakenly written as BA by an overworked student. Due  to this error, the student was working with a number bigger in value, and its difference with the  actual number is one less than the actual number. If the sum of the two digits is half a score.  What is the actual number?",
+    opt: ["43", "34", "73", "37"],
+    ans: "37",
+  },
+  {
+    q: "From a point P, the bearings of two points Q and R are 67degreeW and N23degreeE respectively. If the  bearing of R from Q is N68degreeE and PQ = 150m, calculate PR. ",
+    opt: ["120m", "140m", "150m", "160m"],
+    ans: "150m",
+  },
+  {
+    q: "Divide 4x^3– 3x – 1 by 2x – 1.  ",
+    opt: ["2x^2– x + 1", "2x^2– x – 1", "2x^2 + x + 1", "2x^2 + x – 1"],
+    ans: "2x^2 + x – 1",
+  },
+  {
+    q: "A trader bought 100 oranges at 5 for N1.20, 20 oranges got spoilt and the remaining were  sold at for N1.50. Find the percentage gain or loss. ",
+    opt: ["30% gain", "25% gain", "30% loss", "25% loss"],
+    ans: "25% gain",
+  },
+  {
+    q: "Evaluate: (0.21 x 0.072 x 0.00054) ÷ (0.006 x 1.68 x 0.063), correct to 4 s.f.  ",
+    opt: ["0.01286", "0.01285", "0.1286", "0.1285"],
+    ans: "0.01286",
+  },
+  {
+    q: "The slope of the tangent to the curve y = 3x^2– 2x + 5 at the point (1, 6) is  ",
+    opt: ["4", "1", "6", "5"],
+    ans: "4",
+  },
+  {
+    q: "A circle with radius 5cm has its radius increasing at the rate of 0.2 m/s. What will be the  corresponding increase in the area?  ",
+    opt: ["2π", "5π", "π", "4π"],
+    ans: "2π",
+  },
+  {
+    q: "If the 9th term of an A.P. is five times the 5th term, find the relationship between a and d.",
+    opt: ["2a + 2 = 0", "3a + 5d = 0", "a + 3d = 0", "a + 2d = 0."],
+    ans: "a + 3d = 0",
+  },
+  {
+    q: "The binary operation * is defined on the set of integers p and q by p * q = pq + p + q.  Find 2 * (3 * 4).  ",
+    opt: ["59", "19", "67", "38"],
+    ans: "59",
+  },
+  {
+    q: "A bucket is 12cm in diameter at the top, 8cm in diameter at the bottom and 4cm deep.  Calculate its volume. ",
+    opt: ["304π/3 cm3", "128π/3 cm3", "144π/3 cm3", "72π/3 cm3"],
+    ans: "304π/3 cm3",
+  },
+  {
+    q: "The sum of the interior angles of a polygon is 20 right angles. How many sides does the  polygon have?  ",
+    opt: ["12", "20", "40", "10"],
+    ans: "12",
+  },
+  {
+    q: "A hunter 1.6m tall, views a bird on top of a tree at an angle of 45 degrees. If the distance  between the hunter and the tree is 10.4m, find the height of the tree.  ",
+    opt: ["9.0m", "12.0m", "8.8m", "10.4m"],
+    ans: "10.4m",
+  },
+  {
+    q: "Find the value of a if the line 2y – ax + 4 = 0 is perpendicular to the line y + (x/4)-7=0  ",
+    opt: ["-4", "4", "8", "-8"],
+    ans: "8",
+  },
+  {
+    q: "Find the mean of the data: 7, -3, 4, -2, 5, -9, 4, 8, -6, 12.  ",
+    opt: ["3", "4", "1", "2"],
+    ans: "2",
+  },
+  {
+    q: "The probability of a student passing any exam is 2/3. If the student takes three exams, what  is the probability that he will not pass any of them?  ",
+    opt: ["2/3", "4/9", "8/27", "1/27"],
+    ans: "1/27",
+  },
 ];

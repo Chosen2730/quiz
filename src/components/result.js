@@ -1,16 +1,11 @@
 import { useGlobalContext } from "./../context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Result = () => {
-  const { index, correct, questions, time, setQuiz, showResult } =
+  const { index, correct, questions, time, setQuiz, showResult, logout } =
     useGlobalContext();
   const { min, sec } = time;
   const navigate = useNavigate();
-  const logout = (e) => {
-    e.preventDefault();
-    setQuiz(false);
-    showResult(false);
-    navigate("/");
-  };
+
   return (
     <main className='result'>
       <div className='result_box'>
@@ -38,9 +33,12 @@ const Result = () => {
             Click here to subscribe
           </a>{" "}
         </p>
-        <button className='end_exam' onClick={logout}>
-          <a href=''>End Exam</a>
-        </button>
+
+        <Link to='/'>
+          <button className='end_exam' onClick={logout}>
+            End Exam
+          </button>
+        </Link>
       </div>
     </main>
   );
