@@ -1,18 +1,7 @@
 import { useGlobalContext } from "./../context";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Result = () => {
-  const {
-    index,
-    correct,
-    questions,
-    time,
-    setQuiz,
-    showResult,
-    logout,
-    results,
-  } = useGlobalContext();
-  const { min, sec } = time;
-  const navigate = useNavigate();
+  const { correct, questions, logout, results } = useGlobalContext();
 
   return (
     <main className='result'>

@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
+import { BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { MdAccessTime } from "react-icons/md";
 import { useGlobalContext } from "./../context";
 import Result from "./result";

@@ -1,5 +1,5 @@
 import { useGlobalContext } from "./../context";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const Question = () => {
   const OPT = useRef(null);

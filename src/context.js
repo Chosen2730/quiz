@@ -21,12 +21,6 @@ const bio = getRandomQuestions(biology).slice(0, 5);
 const phy = getRandomQuestions(physics).slice(0, 5);
 const math = getRandomQuestions(maths).slice(0, 5);
 
-// const eng = English.slice(0, 10);
-// const chm = chemistry.slice(0, 5);
-// const bio = biology.slice(0, 5);
-// const phy = physics.slice(0, 5);
-// const math = maths.slice(0, 5);
-
 const questions = [...eng, ...bio, ...chm, ...phy, ...math];
 
 const AppProvider = ({ children }) => {
@@ -67,6 +61,7 @@ const AppProvider = ({ children }) => {
       }
     }, 1000);
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, [quiz]);
 
   const changeAccess = (e) => {
