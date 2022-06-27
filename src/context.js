@@ -41,7 +41,14 @@ const AppProvider = ({ children }) => {
   const [time, setTime] = useState({ min: 0, sec: 0 });
   const [option, setOption] = useState({});
   const [results, setResults] = useState([]);
+  const [anwser, setAnwser] = useState({
+    eng: {},
+    bio: {},
+    chm: {},
+    phy: {},
+    math: {}
 
+  });
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -99,7 +106,18 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const checkAnswer = (crr, option, value, q, i) => {
+  const checkAnswer = (crr, option, value, q, i, subject) => {
+    setAnwser((prev) => {
+      var obj = {
+
+      };
+      obj[subject] = {
+        [i]: {
+          option,
+        }
+      }
+      return { ...prev, ...obj }
+    })
     if (crr.toLowerCase() === option.toLowerCase()) {
       setIsCorrect(true);
     } else {
@@ -165,6 +183,7 @@ const AppProvider = ({ children }) => {
         showResult,
         logout,
         results,
+        anwser
       }}
     >
       {children}

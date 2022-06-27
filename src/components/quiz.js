@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { MdAccessTime } from "react-icons/md";
 import { useGlobalContext } from "./../context";
@@ -7,7 +7,7 @@ import Question from "./question";
 
 const Quiz = () => {
   const activeSub = useRef(null);
-
+  const [selectedSubject, setSelectedSubject] = useState("");
   useEffect(() => {
     const activeSubject = activeSub.current;
     const subs = activeSubject.children;
@@ -94,7 +94,10 @@ const Quiz = () => {
             return (
               <h6
                 className='sub'
-                onClick={() => changeSubject(subject)}
+                onClick={() => {
+                  setSelectedSubject(subject)
+                  changeSubject(subject)
+                }}
                 key={i}
               >
                 {subject}
@@ -103,7 +106,7 @@ const Quiz = () => {
           })}
         </div>
         <div className='question_body'>
-          <Question />
+          <Question subject={selectedSubject} />
         </div>
         <div className='button_container'>
           <button className='prev' onClick={() => handleIndex("prev")}>
