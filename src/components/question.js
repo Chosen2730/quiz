@@ -1,10 +1,10 @@
 import { useGlobalContext } from "./../context";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
-const Question = () => {
+const Question = ({subject}) => {
   const OPT = useRef(null);
 
-  const { index, checkAnswer, checkP, alert, value, questions } =
+  const { index, checkAnswer, checkP, alert, value, questions, anwser } =
     useGlobalContext();
 
   const { inst, q, opt, ans } = questions[index];
@@ -25,7 +25,8 @@ const Question = () => {
                   key={i}
                   className='que_p '
                   onClick={() => {
-                    checkAnswer(ans, option, options[i], q, index + 1);
+                    console.log(anwser);
+                    checkAnswer(ans, option, options[i], q, index + 1,subject);
                   }}
                 >
                   {options[i]}. {option}
