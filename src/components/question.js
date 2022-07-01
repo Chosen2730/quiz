@@ -1,9 +1,9 @@
 import { useGlobalContext } from "./../context";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Question = ({subject}) => {
   const OPT = useRef(null);
-
+  const [tick, setTick] = useState(false); 
   const { index, checkAnswer, checkP, alert, value, questions, anwser } =
     useGlobalContext();
 
@@ -25,7 +25,7 @@ const Question = ({subject}) => {
                   key={i}
                   className='que_p '
                   onClick={() => {
-                    console.log(anwser);
+                    setTick(!tick);
                     checkAnswer(ans, option, options[i], q, index + 1,subject);
                   }}
                 >
