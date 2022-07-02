@@ -1,6 +1,6 @@
 import logo from "./../images/logo.png";
 import { useState } from "react";
-import { useGlobalContext } from "./../context";
+import { useGlobalContext } from "../context";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { accessCode, setAccessCode, changeAccess, setQuiz, showResult } =
