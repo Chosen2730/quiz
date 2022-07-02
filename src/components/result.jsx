@@ -1,5 +1,5 @@
-import { useGlobalContext } from "./../context";
-import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context";
+import { useNavigate, Link } from "react-router-dom";
 const Result = () => {
   const { correct, questions, logout, results } = useGlobalContext();
 

@@ -1,14 +1,14 @@
-import { useGlobalContext } from "./../context";
-import { useRef } from "react";
+import { useGlobalContext } from "../context";
+import { useRef, useState } from "react";
 
-const Question = () => {
+const Question = ({ subject }) => {
   const OPT = useRef(null);
-
-  const { index, checkAnswer, checkP, alert, value, questions } =
+  const { index, checkAnswer, checkP, alert, value, questions, anwser } =
     useGlobalContext();
-
+  const [select, setSelect] = useState(false);
+  const [op, setOption] = useState("");
+  const [log, setLog] = useState({ [index]: { option: "", selected: false } });
   const { inst, q, opt, ans } = questions[index];
-
   const options = ["A", "B", "C", "D", "E"];
 
   return (
@@ -24,8 +24,19 @@ const Question = () => {
                 <p
                   key={i}
                   className='que_p '
+                  style={{
+                    backgroundColor:
+                      log[index]?.option === option && log[index]?.selected
+                        ? "#3b44f6"
+                        : "#000",
+                  }}
                   onClick={() => {
-                    checkAnswer(ans, option, options[i], q, index + 1);
+                    setOption(option);
+                    op === option ? setSelect(!select) : setSelect(true);
+                    setLog((prev) => {
+                      return { ...prev, [index]: { option, selected: select } };
+                    });
+                    checkAnswer(ans, option, options[i], q, index + 1, subject);
                   }}
                 >
                   {options[i]}. {option}
