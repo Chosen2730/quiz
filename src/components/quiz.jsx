@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { BiTimeFive, BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { MdAccessTime } from "react-icons/md";
-import { useGlobalContext } from "./../context";
+import { useGlobalContext } from "../context";
 import Result from "./result";
 import Question from "./question";
 

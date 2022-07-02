@@ -1,4 +1,4 @@
-import { useGlobalContext } from "./../context";
+import { useGlobalContext } from "../context";
 import { useRef, useState } from "react";
 
 const Question = ({subject}) => {
