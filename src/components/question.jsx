@@ -1,12 +1,12 @@
 import { useGlobalContext } from "../context";
 import { useRef, useState } from "react";
-import Options from "./Options";
 
 const Question = ({subject}) => {
   const OPT = useRef(null);
   const { index, checkAnswer, checkP, alert, value, questions, anwser } =
     useGlobalContext();
-
+  const [select, setSelect] = useState(false);
+  const [opt, setOption] = useState("");
   const { inst, q, opt, ans } = questions[index];
 
   const options = ["A", "B", "C", "D", "E"];
@@ -19,8 +19,22 @@ const Question = ({subject}) => {
         <div className='main_question'>
           <h5 className='que'>{q}</h5>
           <div className='option_div' ref={OPT}>
-            {opt.map((option, i) =>  <Options i={i} option={option} ans={ans} options={options} index={index} q={q} subject={subject} checkAnswer={checkAnswer}  />
-            )}
+            {opt.map((option, i) => {
+              return (
+                <p
+                  key={i}
+                  className='que_p '
+                  style={{ backgroundColor: select ? '#3b44f6' : '#000' }}
+                  onClick={() => {
+                    setOption(option);
+                    se
+                    checkAnswer(ans, option, options[i], q, index + 1,subject);
+                  }}
+                >
+                  {options[i]}. {option}
+                </p>
+              );
+            })}
           </div>
           {alert && (
             <h6 className='value'>
