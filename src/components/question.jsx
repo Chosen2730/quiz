@@ -1,5 +1,6 @@
 import { useGlobalContext } from "../context";
 import { useRef, useState } from "react";
+import Options from "./Options";
 
 const Question = ({subject}) => {
   const OPT = useRef(null);
@@ -18,19 +19,8 @@ const Question = ({subject}) => {
         <div className='main_question'>
           <h5 className='que'>{q}</h5>
           <div className='option_div' ref={OPT}>
-            {opt.map((option, i) => {
-              return (
-                <p
-                  key={i}
-                  className='que_p '
-                  onClick={() => {
-                    checkAnswer(ans, option, options[i], q, index + 1,subject);
-                  }}
-                >
-                  {options[i]}. {option}
-                </p>
-              );
-            })}
+            {opt.map((option, i) =>  <Options i={i} option={option} ans={ans} options={options} index={index} q={q} subject={subject} checkAnswer={checkAnswer}  />
+            )}
           </div>
           {alert && (
             <h6 className='value'>
