@@ -1,15 +1,16 @@
 import { useGlobalContext } from "../context";
-import { useRef, useState } from "react";
+import { useDeferredValue, useRef, useState } from "react";
 
 const Question = ({subject}) => {
   const OPT = useRef(null);
   const { index, checkAnswer, checkP, alert, value, questions, anwser } =
     useGlobalContext();
   const [select, setSelect] = useState(false);
-  const [opt, setOption] = useState("");
+  const [op, setOption] = useState("");
+  const [log, setLog] = useState({ [index]: { option: "", selected: false } });
   const { inst, q, opt, ans } = questions[index];
-
   const options = ["A", "B", "C", "D", "E"];
+  const le = useDeferredValue(log);
 
   return (
     <main className='question'>
@@ -24,10 +25,14 @@ const Question = ({subject}) => {
                 <p
                   key={i}
                   className='que_p '
-                  style={{ backgroundColor: select ? '#3b44f6' : '#000' }}
+                  style={{ backgroundColor: log[index]?.option === option && log[index]?.selected ? '#3b44f6' : '#000' }}
                   onClick={() => {
                     setOption(option);
-                    se
+                    console.log("click")
+                    opt === option ? setSelect(!select) : setSelect(true);                    
+                    setLog((prev) => {
+                        return {...prev , [index]: {option, selected:select}}
+                      })
                     checkAnswer(ans, option, options[i], q, index + 1,subject);
                   }}
                 >
