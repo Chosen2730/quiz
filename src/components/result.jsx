@@ -1,4 +1,4 @@
-import { useGlobalContext } from "./../context";
+import { useGlobalContext } from "../context";
 import { useNavigate, Link } from "react-router-dom";
 const Result = () => {
   const {
