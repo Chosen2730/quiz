@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const options = () => {
-  return (
+const Options = () => {
+    const [select, setSelect] = useState(false);
+    return (
     <div>options</div>
   )
 }
 
-export default options
+export default Options;
