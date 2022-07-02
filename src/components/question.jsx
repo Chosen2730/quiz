@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { useDeferredValue, useRef, useState } from "react";
+import {useRef, useState } from "react";
 
 const Question = ({subject}) => {
   const OPT = useRef(null);
@@ -10,7 +10,6 @@ const Question = ({subject}) => {
   const [log, setLog] = useState({ [index]: { option: "", selected: false } });
   const { inst, q, opt, ans } = questions[index];
   const options = ["A", "B", "C", "D", "E"];
-  const le = useDeferredValue(log);
 
   return (
     <main className='question'>
@@ -29,7 +28,7 @@ const Question = ({subject}) => {
                   onClick={() => {
                     setOption(option);
                     console.log("click")
-                    opt === option ? setSelect(!select) : setSelect(true);                    
+                    op === option ? setSelect(!select) : setSelect(true);                    
                     setLog((prev) => {
                         return {...prev , [index]: {option, selected:select}}
                       })
