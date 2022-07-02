@@ -27,7 +27,6 @@ const Question = ({subject}) => {
                   style={{ backgroundColor: log[index]?.option === option && log[index]?.selected ? '#3b44f6' : '#000' }}
                   onClick={() => {
                     setOption(option);
-                    console.log("click")
                     op === option ? setSelect(!select) : setSelect(true);                    
                     setLog((prev) => {
                         return {...prev , [index]: {option, selected:select}}
