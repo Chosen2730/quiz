@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 
 const Question = ({ subject }) => {
   const OPT = useRef(null);
-  const { index, checkAnswer, checkP, alert, value, questions, anwser } =
+  const { index, checkAnswer, checkP, alert, value, questions } =
     useGlobalContext();
   const [select, setSelect] = useState(false);
   const [op, setOption] = useState("");
@@ -28,7 +28,7 @@ const Question = ({ subject }) => {
                     backgroundColor:
                       log[index]?.option === option && log[index]?.selected
                         ? "#3b44f6"
-                        : "#000",
+                        : "transparent",
                   }}
                   onClick={() => {
                     setOption(option);

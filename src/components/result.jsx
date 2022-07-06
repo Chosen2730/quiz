@@ -3,10 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 const Result = () => {
   const { correct, questions, logout, results } = useGlobalContext();
 
+  const wrongAnswers = results.filter((res) => res.crr !== res.option);
+
   return (
     <main className='result'>
       <div className='result_box'>
-        <h2>your Result</h2>
+        <h2 style={{ fontSize: "0.9rem" }}>your Result</h2>
         <div className='disp_result'>
           <h5>Score:</h5>{" "}
           <span>{((correct / (questions.length - 1)) * 100).toFixed(0)}%</span>{" "}
@@ -15,7 +17,7 @@ const Result = () => {
           <h5>Total Questions:</h5> <span>{questions.length}</span>{" "}
         </div>
         <div className='disp_result'>
-          <h5>Correct Answers:</h5> <span>{correct}</span>{" "}
+          <h5>Correct Answers:</h5> <span>{correct || 0}</span>{" "}
         </div>
         <div className='disp_result'>
           <h5>Incorrect Answers:</h5> <span>{questions.length - correct}</span>{" "}
@@ -31,8 +33,8 @@ const Result = () => {
           </a>{" "}
         </p>
 
-        <h2>Overview</h2>
-        {results.map((r) => {
+        <h2 style={{ fontSize: "0.9rem" }}>Wrong Answers & Corrections</h2>
+        {wrongAnswers.map((r) => {
           const { q, crr, option, i } = r;
           return (
             <div key={i} className='result_cont'>

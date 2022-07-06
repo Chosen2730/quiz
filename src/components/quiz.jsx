@@ -52,7 +52,7 @@ const Quiz = () => {
       <article className='main_quiz'>
         <div className='quiz_header'>
           <h3 className='exam_progress'>
-            {index < questions.indexOf(eng[eng.length - 1]) + 1
+            {/* {index < questions.indexOf(eng[eng.length - 1]) + 1
               ? "English"
               : index < questions.indexOf(bio[bio.length - 1]) + 1
               ? "Biology"
@@ -62,7 +62,8 @@ const Quiz = () => {
               ? "Physics"
               : index < questions.indexOf(math[math.length - 1]) + 1
               ? "Mathematics"
-              : ""}
+              : ""} */}
+            Exam in Progress
           </h3>
           <div className='timer'>
             <i>
@@ -85,12 +86,18 @@ const Quiz = () => {
               }}
             ></div>
           </div>
-          <button className='submit_exam' onClick={submitExam}>
+          <button
+            className='submit_exam'
+            onClick={() => {
+              submitExam();
+              alert("Are you sure you want to submit?");
+            }}
+          >
             Submit Exam
           </button>
         </div>
         <div className='subject_header' ref={activeSub}>
-          {sub.map((subject, i) => {
+          {/* {sub.map((subject, i) => {
             return (
               <h6
                 className='sub'
@@ -103,7 +110,7 @@ const Quiz = () => {
                 {subject}
               </h6>
             );
-          })}
+          })} */}
         </div>
         <div className='question_body'>
           <Question subject={selectedSubject} />

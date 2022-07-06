@@ -15,13 +15,21 @@ const getRandomQuestions = (sub) => {
   }
   return subject;
 };
-const eng = getRandomQuestions(English).slice(0, 10);
+const allQuestions = [
+  ...English.slice(0, 13),
+  ...maths.slice(0, 12),
+  ...chemistry.slice(0, 5),
+  ...physics.slice(0, 5),
+  ...biology.slice(0, 5),
+];
+const allQue = getRandomQuestions(allQuestions);
+const eng = getRandomQuestions(English).slice(0, 5);
 const chm = getRandomQuestions(chemistry).slice(0, 5);
 const bio = getRandomQuestions(biology).slice(0, 5);
 const phy = getRandomQuestions(physics).slice(0, 5);
 const math = getRandomQuestions(maths).slice(0, 5);
 
-const questions = [...eng, ...bio, ...chm, ...phy, ...math];
+const questions = [...allQue];
 
 const AppProvider = ({ children }) => {
   const [quiz, setQuiz] = useState(false);
@@ -40,8 +48,7 @@ const AppProvider = ({ children }) => {
     bio: {},
     chm: {},
     phy: {},
-    math: {}
-
+    math: {},
   });
   const today = new Date();
   const year = today.getFullYear();
@@ -50,7 +57,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 18, second);
+  const future = new Date(year, month, date, hour, minute + 20, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -103,16 +110,14 @@ const AppProvider = ({ children }) => {
 
   const checkAnswer = (crr, option, value, q, i, subject) => {
     setAnwser((prev) => {
-      var obj = {
-
-      };
+      var obj = {};
       obj[subject] = {
         [i]: {
           option,
-        }
-      }
-      return { ...prev, ...obj }
-    })
+        },
+      };
+      return { ...prev, ...obj };
+    });
     if (crr.toLowerCase() === option.toLowerCase()) {
       setIsCorrect(true);
     } else {
@@ -148,6 +153,7 @@ const AppProvider = ({ children }) => {
     showResult(false);
     setIndex(0);
     setCorrect("");
+    setResults([]);
   };
 
   return (
@@ -178,7 +184,7 @@ const AppProvider = ({ children }) => {
         showResult,
         logout,
         results,
-        anwser
+        anwser,
       }}
     >
       {children}

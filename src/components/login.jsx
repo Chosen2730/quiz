@@ -47,7 +47,7 @@ const Login = () => {
           <input
             onClick={handleSubmit}
             className='login_btn'
-            type='button'
+            type='submit'
             value='Start Quiz'
           />
           <p>
