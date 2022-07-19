@@ -16,11 +16,11 @@ const getRandomQuestions = (sub) => {
   return subject;
 };
 const allQuestions = [
-  ...English.slice(0, 13),
-  ...maths.slice(0, 12),
-  ...chemistry.slice(0, 5),
-  ...physics.slice(0, 5),
-  ...biology.slice(0, 5),
+  ...English.slice(0, 2),
+  ...maths.slice(0, 2),
+  ...chemistry.slice(0, 2),
+  ...physics.slice(0, 2),
+  ...biology.slice(0, 2),
 ];
 const allQue = getRandomQuestions(allQuestions);
 const eng = getRandomQuestions(English).slice(0, 5);
@@ -57,7 +57,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 20, second);
+  const future = new Date(year, month, date, hour, minute + 2, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
