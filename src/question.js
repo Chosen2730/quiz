@@ -512,6 +512,125 @@ export const English = [
 
 export const physics = [
   {
+    q: "A car accelerates uniformly from rest at 4ms-2. How far will it travel in the fifth complete second.",
+    opt: ["100m", "50m", "32m", "18m"],
+    ans: "18m",
+  },
+
+  {
+    q: "What is the acceleration between two points on a velocity time graph which has coordinate (10s, 15ms-1) and (20s, 35ms-1)",
+    opt: ["1.75ms-²", "3.50ms-²", "1.00ms-²", "2.00ms-²"],
+    ans: "2.00ms-²",
+  },
+
+  {
+    q: "A bullet fired vertically upward from a gun held 2.0m above the ground reaches its maximum height in 4.0s. Calculate its initial velocity.",
+    opt: ["10ms-¹", "8ms-¹", "40ms-¹", "20ms-¹"],
+    ans: "40ms-¹",
+  },
+
+  {
+    q: "Two particles X and Y starting from rest cover the same distance. The acceleration of X is twice that of Y. The ratio of the time taken by X to that taken by Y is.",
+    opt: ["1/2", "2", "1√2", "√2"],
+    ans: "1√2",
+  },
+
+  {
+    q: "In free fall, a body of mass 1kg drops from a height of 125m from rest in 5s. How long will it take another body of mass 2kg to fall from rest from the same height? [g=10ms-²]",
+    opt: ["5s", "10s", "12s", "15s"],
+    ans: "5s",
+  },
+
+  {
+    q: "A small metal ball is thrown vertically upwards from the top of a tower with an initial velocity of 20ms-1. If the ball took a total of 6s to the reach the ground level,determine the height of the tower (g=10ms-¹)",
+    opt: ["60s", "80s", "100s", "120s"],
+    ans: "60s",
+  },
+
+  {
+    q: "A palm fruit dropped to the ground from the top of a tree 45m tall. How long does it take to reach the ground? (g=10ms-¹)",
+    opt: ["9s", "4.5s", "6s", "3s"],
+    ans: "3s",
+  },
+
+  {
+    q: "A mango fruit drops from a branch 10m above the ground, just before hitting the ground its velocity is",
+    opt: ["10√2ms-¹", "100ms-¹", "5√2ms-¹"],
+    ans: "10√2ms-¹",
+  },
+
+  {
+    q: "A body falls freely under gravity (g=9.8m/s²) from a height of 40m on to the top of a platform 0.8m above the ground. Its velocity on reaching the platform is.",
+    opt: ["784ms-¹", "80ms-¹", "78.4ms-¹", "27.7ms-¹"],
+    ans: "27.7ms-¹",
+  },
+
+  {
+    q: "A motor vehicle is brought to rest from a speed of 15ms-¹ in 20s. Calculate the retardation.",
+    opt: ["0.75ms-²", "1.33ms-²", "5.00ms-²", "7.50ms-²"],
+    ans: "0.75ms-²",
+  },
+
+  {
+    q: "Two points on a velocity time graph have coordinate (5s, 10ms-¹) and (20s, 20ms-¹) calculate the mean acceleration between the two points.",
+    opt: ["0.67ms-¹", "0.83ms-¹", "1.50ms-¹", "2.00ms-¹"],
+    ans: "0.67ms-¹",
+  },
+
+  {
+    q: "An aeroplane lands on a runway at a speed of 180km/hour and is brought to a stop uniformly in 30s. What distance does it cover on the runway before coming to a rest?",
+    opt: ["360m", "540m", "750m", "975m"],
+    ans: "750m",
+  },
+
+  {
+    q: "A car moving with a speed of 90km/hour was brought to rest by the application of the brakes in 10s. How far did the car travel after the brakes were applied.",
+    opt: ["125m", "150m", "250m", "15km"],
+    ans: "125m",
+  },
+
+  {
+    q: "A particle starts from rest and moves with a constant acceleration of 0.5m/s². The distance covered by the particle in 10s is",
+    opt: ["2.5m", "5.0m", "25.0m", "50.0m"],
+    ans: "2.5m",
+  },
+
+  {
+    q: "A body starts from rest and move with uniform acceleration of 6m/s². What distance does it cover in the third second",
+    opt: ["15m", "18m", "27m", "30m"],
+    ans: "15m",
+  },
+
+  {
+    q: "If a car starts from rest and move with a uniform acceleration of 10m/s² for ten seconds, the distance it covers in the last ten seconds of motion is?",
+    opt: ["95m", "100m", "500m", "905m"],
+    ans: "95m",
+  },
+
+  {
+    q: "A train has an initial velocity of 44m/s and acceleration of -4m/s². Its velocity after ten seconds is",
+    opt: ["2m/s", "4m/s", "8m/s", "12m/s"],
+    ans: "4m/s",
+  },
+
+  {
+    q: "A boy cycles continuously through a distance of 1.0km in 5minutes. Calculate his average speed.",
+    opt: ["3.33m/s", "2.30m/s", "5m/s", "15.00m/s"],
+    ans: "3.33m/s",
+  },
+
+  {
+    q: "An air force jet flying with a speed of 335m/s went past an anti air craft gun. How far is the aircraft 5s later when the gun was fired",
+    opt: ["838m", "3350m", "670m", "1675m"],
+    ans: "1675m",
+  },
+
+  {
+    q: "An object of mass 2kg moves for 5s with a uniform velocity of 100ms-¹. What is the magnitude of its acceleration ms-²",
+    opt: ["2.0", "3.0", "0.0", "5.0"],
+    ans: "0.0",
+  },
+  {
     q: "A temperature of 20° C is the same as ? ",
     opt: ["36°F", "68°F", "11.1°F", "43.1°F"],
     ans: "68°F",

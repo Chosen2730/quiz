@@ -20,21 +20,15 @@ const getRandomQuestions = (sub) => {
 // console.log(chemistry.length);
 // console.log(biology.length);
 // console.log(physics.length);
-const allQuestions = [
-  // ...English.slice(0, 2),
-  // ...maths.slice(0, 2),
-  // ...chemistry.slice(0, 2),
-  // ...physics.slice(0, 2),
-  // ...biology.slice(0, 2),
-];
-const allQue = getRandomQuestions(allQuestions);
 const eng = getRandomQuestions(English).slice(0, 10);
 const chm = getRandomQuestions(chemistry).slice(0, 7);
 const bio = getRandomQuestions(biology).slice(0, 7);
 const phy = getRandomQuestions(physics).slice(0, 7);
 const math = getRandomQuestions(maths).slice(0, 9);
+const allQuestions = [...eng, ...chm, ...bio, ...phy, ...math];
+const allQue = getRandomQuestions(allQuestions);
 
-const questions = [...eng, ...chm, ...bio, ...phy, ...math];
+const questions = [...allQue];
 
 const AppProvider = ({ children }) => {
   const [quiz, setQuiz] = useState(false);
