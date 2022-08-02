@@ -1,5 +1,5 @@
 import { useGlobalContext } from "../context";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Result = () => {
   const { correct, questions, logout, results } = useGlobalContext();
 
@@ -11,7 +11,7 @@ const Result = () => {
         <h2 style={{ fontSize: "0.9rem" }}>your Result</h2>
         <div className='disp_result'>
           <h5>Score:</h5>{" "}
-          <span>{((correct / (questions.length - 1)) * 100).toFixed(0)}%</span>{" "}
+          <span>{((correct / (questions.length - 1)) * 100).toFixed(0)}%</span>
         </div>
         <div className='disp_result'>
           <h5>Total Questions:</h5> <span>{questions.length}</span>{" "}
@@ -20,7 +20,7 @@ const Result = () => {
           <h5>Correct Answers:</h5> <span>{correct || 0}</span>{" "}
         </div>
         <div className='disp_result'>
-          <h5>Incorrect Answers:</h5> <span>{questions.length - correct}</span>{" "}
+          <h5>Incorrect Answers:</h5> <span>{questions.length - correct}</span>
         </div>
         {/* <div className='disp_result'>
           <h5>Time Remaining:</h5> <span>{`${min}:${sec}`}</span>{" "}

@@ -5,7 +5,159 @@ const antonyms =
 const interprete =
   "Choose the BEST INTERPRETATION for the sentence among the options";
 const fill = "Fill in the gap with the most appropriate word";
+const phrasalVerbs =
+  "Replace the PHRASAL VERB in BLOCK LETTERS with a suitable alternative verb";
 export const English = [
+  {
+    inst: phrasalVerbs,
+    q: "The foundation COMES UP WITH the idea of providing teachers in rural areas with more teaching resources",
+    opt: ["refuses", "postpone", "proposes", "accepts"],
+    ans: "proposes",
+  },
+  {
+    inst: phrasalVerbs,
+    q: "the government needs to develop the public transport system if it wishes to encourage more people TO GIVE UP driving private vehicles",
+    opt: ["continue", "desist[from]", "consider", "testify"],
+    ans: "desist[from]",
+  },
+  {
+    inst: phrasalVerbs,
+    q: "more talks by successful people I needed to CHEER students UP",
+    opt: ["inspire", "refresh", "enlist", "inspect"],
+    ans: "inspire",
+  },
+  {
+    inst: phrasalVerbs,
+    q: "the government decides to CUT OFF their support programs funded develop communities as they lack funding",
+    opt: ["continue", "revise", "improve", "abandon"],
+    ans: "abandon",
+  },
+  {
+    inst: phrasalVerbs,
+    q: "if students struggle to find information for their specific studies they can easily LOOK IT UP on the internet",
+    opt: ["imitate", "beautify", "invent", "research"],
+    ans: "research",
+  },
+  {
+    inst: fill,
+    q: "the newly lauched electronic gadget has really __________________-",
+    opt: ["taken up", "take up", "taken off", "take off"],
+    ans: "taken off",
+  },
+  {
+    inst: fill,
+    q: "the bus was almost full so it was difficult to __________________-",
+    opt: ["get in", "get on", "get up"],
+    ans: "get on",
+  },
+  {
+    inst: fill,
+    q: "the soldier will be brought to trial because it's considered to have __________________- state secrets to the enemy ",
+    opt: ["backed up", "given away", "broken out", "turned off"],
+    ans: "given away",
+  },
+  {
+    inst: fill,
+    q: "i thought the movie was going to end but it just __________________-",
+    opt: ["dragged in", "dragged on", "dragged into"],
+    ans: "dragged on",
+  },
+  {
+    inst: fill,
+    q: "oh no! the list of building has __________________ again",
+    opt: ["broken down", "broken up", "broken in"],
+    ans: "broken down",
+  },
+  {
+    inst: fill,
+    q: "in a recent survey it was found that most manager's time it's taken __________________- with paperwork and writing report",
+    opt: ["up", "down", "by"],
+    ans: "up",
+  },
+  {
+    inst: fill,
+    q: "sorry i'm late, my car __________________ petrol",
+    opt: ["ran out", "ran out of", "ran out on"],
+    ans: "ran out of",
+  },
+  {
+    inst: fill,
+    q: "i painted __________________ to them the possible consequences of their actions",
+    opt: ["with", "out", "to"],
+    ans: "out",
+  },
+  {
+    inst: fill,
+    q: "the english teacher gave the class a list of work to __________________ the meaning of ",
+    opt: ["set up", "run over", "look up", "check in"],
+    ans: "look up",
+  },
+  {
+    inst: fill,
+    q: "the team managed to __________________ the police barricade",
+    opt: ["break in", "break through", "break on"],
+    ans: "break through",
+  },
+  {
+    inst: fill,
+    q: "in my opinon, money really brings __________________- the worst people{greed,jealousy and envy}",
+    opt: ["off", "down", "out"],
+    ans: "out",
+  },
+  {
+    inst: fill,
+    q: "there was nothing good on tv so i turned it __________________- and went to bed ",
+    opt: ["off", "on", "up", "down"],
+    ans: "off",
+  },
+  {
+    inst: fill,
+    q: "we have to __________________- my notes once again to make sure we have understood all important details before the exam",
+    opt: ["stand for", "go over", "pull down", "put up with"],
+    ans: "pull down",
+  },
+  {
+    inst: fill,
+    q: "friends that help you to __________________ a difficult time in your life ",
+    opt: ["get in", "get around", "get buy", "get through"],
+    ans: "get through",
+  },
+  {
+    inst: fill,
+    q: "music is too loud. can you turn it __________________ a bit?",
+    opt: ["up", "out", "off", "down"],
+    ans: "off",
+  },
+  {
+    inst: fill,
+    q: "__________________! things will definitely been better.",
+    opt: ["cheer on", "cheer at", "cheer up"],
+    ans: "cheer up",
+  },
+  {
+    inst: fill,
+    q: "that's a good recommendation. i'm happy to __________________ it",
+    opt: ["talk down to", "put on", "looked for", "go along with"],
+    ans: "go along with",
+  },
+  {
+    inst: fill,
+    q: "Adeyemi and Adewale no longer do business together . They fell __________________- over money and have stopped speaking to each other ",
+    opt: ["from", "out", "with"],
+    ans: "out",
+  },
+  {
+    inst: fill,
+    q: "the police are making attempts to __________________ on drunk drivers",
+    opt: ["crack up", "crackdown", "crack through"],
+    ans: "crack up",
+  },
+  {
+    inst: fill,
+    q: "today, there's a tendency in our culture to __________________- the people who have not been to a university",
+    opt: ["take off", "show off", "turnover", "look down on"],
+    ans: "look down on",
+  },
   {
     inst: synonyms,
     q: "Our local paper is noted for it's INCISIVE editorials on local politics.",
@@ -640,6 +792,176 @@ export const chemistry = [
   },
 ];
 export const biology = [
+  {
+    q: "What is a skeleton? ",
+    opt: [
+      "skeleton is the bony framework of the body which provides support shape and protection to the soft tissues and organs in animals",
+      "It's currently a bony framework of thr body that enables animals to move from one place to another",
+      "A skeleton is a framework of the body that provides support and shape to the body",
+    ],
+    ans: "Skeleton is the bony framework of the body which provides support shape and protection to the soft tissues and organs in animals",
+  },
+  {
+    q: "List the three forms of skeletal materials found in mammals",
+    opt: [
+      "Hydrostatic Skeleton, exoskeleton and endoskeleton",
+      "Bones, cartilage and cuticles",
+      "Ecdydis, cuticles and bones ",
+    ],
+    ans: "Bones, cartilage and cuticles",
+  },
+
+  {
+    q: "Bone can be defined as ?",
+    opt: [
+      "The components of the verbral skeleton",
+      "A tissues and a major component of vertebral skeletal",
+      "None of the above",
+    ],
+    ans: "A tissues and a major components of vertebral skeletal",
+  },
+
+  {
+    q: "The cartilage is a ____ found in the skeleton of complex vertebrates",
+    opt: ["cell", "system", "tissues"],
+    ans: "tissues",
+  },
+
+  {
+    q: "The three types of cartilages are :",
+    opt: [
+      "Hyaline, ecdydis and fibro-cartilage",
+      "Elastic , fibro-cartilage and moulting",
+      "Elastic, fibro-cartilage and hyaline cartilage",
+    ],
+    ans: "Elastic, fibro-cartilage and hyaline cartilage",
+  },
+
+  {
+    q: "The types of skeletons are ? ",
+    opt: [
+      "ecdydis, cuticles and bones",
+      "bone, cartilage and cuticles",
+      "endoskeleton, exoskeleton and hydrostatic skeleton",
+    ],
+    ans: " endoskeleton, exoskeleton and hydrostatic skeleton",
+  },
+
+  {
+    q: "____ is a type of skeleton possessed by soft-bodied animals. They are fluid pressure to provide support.",
+    opt: [],
+    ans: "hydrostatic skeleton",
+  },
+
+  {
+    q: "which of the following skeleton is found in lizard, birds, toad, fishes and mammals ?",
+    opt: ["endoskeleton", "exosleton", "hydrostatic skeleton"],
+    ans: "endoskeleton",
+  },
+
+  {
+    q: "____ is made up of the skull, vertebral column or backbone, the ribs and sternum or breastbone",
+    opt: ["axial skeleton", "appendicular skeleton", "exoskeleton"],
+    ans: "axial skeleton",
+  },
+
+  {
+    q: "list the 3 major parts of the skulls.",
+    opt: [
+      "anterior cranial fossa, posterior cranial fossa, middle cranial fossa",
+      "cranium, brain box, jaw",
+      "cranium, facial skeleton, jaws",
+    ],
+    ans: "cranium, facial skeleton, jaws",
+  },
+
+  {
+    q: "The vetebral column is also known as the following except ?",
+    opt: ["backbone", "vertebrae", "spinal column"],
+    ans: "vertebrae",
+  },
+
+  {
+    q: "How many vertebrae are found in mammals? ",
+    opt: ["3", "5", "4"],
+    ans: "5",
+  },
+
+  {
+    q: "Where is the lumber vertebrae ? ",
+    opt: ["neck region", "chest region", "upper abdomen"],
+    ans: "upper abdomen",
+  },
+
+  {
+    q: "Where is the caudal vertebrae found ?",
+    opt: ["lower abdomen", "upper abdomen", "tail region"],
+    ans: "tail region",
+  },
+
+  {
+    q: "Where is the thoracic vertebrae found ?",
+    opt: ["neck region", "chest region", "lower abdomen"],
+    ans: "chest region",
+  },
+
+  {
+    q: "How many thoracic vertebrae is found in man ?",
+    opt: ["15", "11", "12"],
+    ans: "12",
+  },
+
+  {
+    q: "All this are features of a typical vertebrae except: ",
+    opt: ["neural canal", "cervical canal", "transverse process"],
+    ans: "cervical canal",
+  },
+
+  {
+    q: "The axis articulates with the atlas to the _____ process ",
+    opt: ["transverse", "odontoid", "facet"],
+    ans: "odontoid",
+  },
+
+  {
+    q: "In mammals the scapula and coracoid used to form what is called______",
+    opt: ["scapular coracoid", "glenoid cavity", "pubis symphysis"],
+    ans: "scapular coracoid",
+  },
+
+  {
+    q: "The of fusion of the 2 halves of the pelvic gridle is called______? ",
+    opt: ["scapular coracoid", "glenoid cavity", "pubis symphysis"],
+    ans: "pubis symphysis",
+  },
+
+  {
+    q: "a major function of the caudal verbrae is ____",
+    opt: [
+      "we provide attachment for tail muscles",
+      "they provide support for the four limbs",
+      "the support of the tail",
+    ],
+    ans: "the support of the tail",
+  },
+
+  {
+    q: "The wristbone are followed by bones of the digits, the digits are 5 and they are called ?",
+    opt: ["carpals", "metacarpals", "phalanges"],
+    ans: "metacarpals",
+  },
+
+  {
+    q: "where is the femur located ?",
+    opt: ["shin", "thigh", "arm"],
+    ans: "thigh",
+  },
+
+  {
+    q: "The heamoglobin is____ ?",
+    opt: ["A red blood cell", "A white blood cell", "A cell in the tissues"],
+    ans: "A red blood cell",
+  },
   {
     q: "which of the following best defines biology",
     opt: [

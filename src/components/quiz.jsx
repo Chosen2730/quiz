@@ -90,7 +90,6 @@ const Quiz = () => {
             className='submit_exam'
             onClick={() => {
               submitExam();
-              alert("Are you sure you want to submit?");
             }}
           >
             Submit Exam
