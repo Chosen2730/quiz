@@ -1,5 +1,16 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
+import { db } from "./firebaseConfig";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+
 const AppContext = createContext();
 
 const getRandomQuestions = (sub) => {
@@ -32,7 +43,6 @@ const questions = [...allQue];
 
 const AppProvider = ({ children }) => {
   const [quiz, setQuiz] = useState(false);
-  const [accessCode, setAccessCode] = useState("");
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -42,6 +52,12 @@ const AppProvider = ({ children }) => {
   const [time, setTime] = useState({ min: 0, sec: 0 });
   const [option, setOption] = useState({});
   const [results, setResults] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+  const [userName, setUserName] = useState("");
+  const [conFirmPassword, setConfirmPassword] = useState("");
   const [anwser, setAnwser] = useState({
     eng: {},
     bio: {},
@@ -49,6 +65,57 @@ const AppProvider = ({ children }) => {
     phy: {},
     math: {},
   });
+  const [isPasswordVisible, setIsPasswordVisible] = useState(0);
+
+  const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleSignUp = async (navigate) => {
+    showResult(false);
+    try {
+      const user = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, { displayName: name });
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSignIn = async (navigate) => {
+    showResult(false);
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      const newToken = user.user.stsTokenManager.accessToken;
+      if (newToken) {
+        setToken(newToken);
+        navigate("/quiz");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const signUpWithGoogle = async (navigate) => {
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
+      const newToken = res.user.stsTokenManager.accessToken;
+      if (newToken) {
+        setToken(newToken);
+        navigate("/quiz");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  const loginWithGoogle = async () => {
+    try {
+      const res = await signInWithPopup(auth, googleProvider);
+      console.log(res.user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
@@ -79,7 +146,6 @@ const AppProvider = ({ children }) => {
 
   const changeAccess = (e) => {
     const value = e.target.value.toUpperCase();
-    setAccessCode(value);
   };
 
   const checkIndex = (n) => {
@@ -159,8 +225,6 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         changeSubject,
-        accessCode,
-        setAccessCode,
         index,
         handleIndex,
         checkAnswer,
@@ -184,6 +248,15 @@ const AppProvider = ({ children }) => {
         logout,
         results,
         anwser,
+        isPasswordVisible,
+        setIsPasswordVisible,
+        handleSignUp,
+        handleSignIn,
+        setName,
+        setEmail,
+        setPassword,
+        setConfirmPassword,
+        signUpWithGoogle,
       }}
     >
       {children}
