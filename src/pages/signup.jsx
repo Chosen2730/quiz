@@ -28,7 +28,7 @@ const Signup = () => {
         className='shadow-xl p-4 md:p-8'
       >
         <div className='mb-5'>
-          <h2 className='text-2xl font-bold my-3'>Create an Account</h2>
+          <h2 className='text-4xl font-bold my-3'>Create an Account</h2>
           <p className='text-sm text-gray-500'>Signup with</p>
         </div>
         <GoogleFb func={() => signUpWithGoogle(navigate)} />
@@ -69,7 +69,7 @@ const Signup = () => {
           type='submit'
           value='Create Account'
         />
-        <p className='text-sm text-gray-500 my-2'>
+        <p className='text-sm text-gray-500 my-5'>
           Already have an account?{" "}
           <Link to='/'>
             <span className='text-red-700 cursor-pointer'>Login</span>.{" "}
