@@ -1,6 +1,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { English, physics, chemistry, biology, maths } from "./question";
 import { db } from "./firebaseConfig";
+import Swal from "sweetalert2";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -58,6 +59,14 @@ const AppProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [userName, setUserName] = useState("");
   const [conFirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrorMsg("");
+    }, 5000);
+  }, [errorMsg]);
   const [anwser, setAnwser] = useState({
     eng: {},
     bio: {},
@@ -71,17 +80,22 @@ const AppProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
 
   const handleSignUp = async (navigate) => {
+    console.log(loading);
+    setLoading(true);
     showResult(false);
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, { displayName: name });
       navigate("/");
+      setLoading(false);
     } catch (err) {
-      console.log(err);
+      setErrorMsg(err.code);
+      setLoading(false);
     }
   };
 
   const handleSignIn = async (navigate) => {
+    setLoading(true);
     showResult(false);
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
@@ -90,8 +104,10 @@ const AppProvider = ({ children }) => {
         setToken(newToken);
         navigate("/quiz");
       }
+      setLoading(false);
     } catch (err) {
-      console.log(err);
+      setErrorMsg(err.code);
+      setLoading(false);
     }
   };
 
@@ -192,9 +208,30 @@ const AppProvider = ({ children }) => {
     showAlert(true);
     setValue(value);
   };
-  const submitExam = () => {
-    showResult(true);
-    setTime({ min: 0, sec: 0 });
+  const submitExam = (navigate) => {
+    Swal.fire({
+      title: "Are you sure you want to submit?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Submit!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          "Submitted Succesfully!",
+          "Your Exam has been submitted.",
+          "success"
+        );
+        setTimeout(() => {
+          navigate("/result");
+        }, 1000);
+      }
+    });
+
+    // showResult(true);
+    // setTime({ min: 0, sec: 0 });
   };
 
   const changeSubject = (sub) => {
@@ -257,6 +294,8 @@ const AppProvider = ({ children }) => {
         setPassword,
         setConfirmPassword,
         signUpWithGoogle,
+        loading,
+        errorMsg,
       }}
     >
       {children}

@@ -3,6 +3,8 @@ import { useGlobalContext } from "../context";
 import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../components/formInput";
 import GoogleFb from "../components/googleFb";
+import { Dots } from "react-activity";
+import "react-activity/dist/library.css";
 const Signup = () => {
   const {
     isPasswordVisible,
@@ -12,6 +14,8 @@ const Signup = () => {
     setName,
     setConfirmPassword,
     signUpWithGoogle,
+    loading,
+    errorMsg,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -28,7 +32,7 @@ const Signup = () => {
         className='shadow-xl p-4 md:p-8'
       >
         <div className='mb-5'>
-          <h2 className='text-4xl font-bold my-3'>Create an Account</h2>
+          <h2 className='text-4xl font-bold my-3'>Register for this Exam</h2>
           <p className='text-sm text-gray-500'>Signup with</p>
         </div>
         <GoogleFb func={() => signUpWithGoogle(navigate)} />
@@ -64,11 +68,15 @@ const Signup = () => {
           func={(e) => setConfirmPassword(e.target.value)}
         />
         {/* {isPermit && <p>Invalid Access code</p>} */}
-        <input
-          className='rounded-md shadow-xl p-4 px-8 bg-red-700 text-white w-full hover:scale-95 hover:bg-red-900 transition text-sm cursor-pointer'
-          type='submit'
-          value='Create Account'
-        />
+
+        <button className='rounded-md shadow-xl p-4 px-8 bg-red-700 text-white w-full hover:scale-95 hover:bg-red-900 transition text-base font-medium cursor-pointer'>
+          {loading ? <Dots /> : "Create Account"}
+        </button>
+        {errorMsg && (
+          <p className='text-center capitalize italic text-sm my-3 text-red-600 font-medium'>
+            {errorMsg}
+          </p>
+        )}
         <p className='text-sm text-gray-500 my-5'>
           Already have an account?{" "}
           <Link to='/'>

@@ -1,9 +1,9 @@
 import "./App.css";
 import Login from "./pages/login";
-import Quiz from "./components/quiz";
-import Choices from "./components/choices";
+import Quiz from "./pages/quiz";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/signup";
+import Result from "./pages/result";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='signup' element={<Signup />} />
         <Route path='quiz' element={<Quiz />} />
-        <Route path='choices' element={<Choices />} />
+        <Route path='result' element={<Result />} />
       </Routes>
     </BrowserRouter>
   );

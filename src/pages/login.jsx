@@ -3,6 +3,9 @@ import { useGlobalContext } from "../context";
 import { Link, useNavigate } from "react-router-dom";
 import FormInput from "../components/formInput";
 import GoogleFb from "../components/googleFb";
+import { Dots } from "react-activity";
+import "react-activity/dist/library.css";
+
 const Login = () => {
   const {
     isPasswordVisible,
@@ -10,6 +13,8 @@ const Login = () => {
     setEmail,
     setPassword,
     signUpWithGoogle,
+    loading,
+    errorMsg,
   } = useGlobalContext();
   const [isPermit, setIsPermit] = useState(false);
   const ACCESS_CODE = "02082022";
@@ -55,15 +60,19 @@ const Login = () => {
           func={(e) => setPassword(e.target.value)}
         />
         {isPermit && <p>Invalid Access code</p>}
-        <input
-          className='rounded-md shadow-xl p-4 px-8 bg-red-700 text-white w-full hover:scale-95 hover:bg-red-900 transition text-sm cursor-pointer'
-          type='submit'
-          value='Login'
-        />
+
+        <button className='rounded-md shadow-xl p-4 px-8 bg-red-700 text-white w-full hover:scale-95 hover:bg-red-900 transition text-base font-medium cursor-pointer'>
+          {loading ? <Dots /> : "Login"}
+        </button>
+        {errorMsg && (
+          <p className='text-center capitalize italic text-sm my-3 text-red-600 font-medium'>
+            {errorMsg}
+          </p>
+        )}
         <p className='text-sm text-gray-500 my-5'>
           Don't have an account yet?{" "}
           <Link to='/signup'>
-            <span className='text-red-700 cursor-pointer'>Login</span>.{" "}
+            <span className='text-red-700 cursor-pointer'>Sign up</span>.{" "}
           </Link>
         </p>
       </form>
