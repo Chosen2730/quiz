@@ -8,7 +8,6 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 
@@ -27,11 +26,6 @@ const getRandomQuestions = (sub) => {
   }
   return subject;
 };
-// console.log(English.length);
-// console.log(maths.length);
-// console.log(chemistry.length);
-// console.log(biology.length);
-// console.log(physics.length);
 const eng = getRandomQuestions(English).slice(0, 10);
 const chm = getRandomQuestions(chemistry).slice(0, 7);
 const bio = getRandomQuestions(biology).slice(0, 7);
@@ -49,7 +43,6 @@ const AppProvider = ({ children }) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [alert, showAlert] = useState(false);
   const [value, setValue] = useState("");
-  const [result, showResult] = useState(false);
   const [time, setTime] = useState({ min: 0, sec: 0 });
   const [option, setOption] = useState({});
   const [results, setResults] = useState([]);
@@ -61,6 +54,7 @@ const AppProvider = ({ children }) => {
   const [conFirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [isTimeUp, setIsTimeUp] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -82,7 +76,6 @@ const AppProvider = ({ children }) => {
   const handleSignUp = async (navigate) => {
     console.log(loading);
     setLoading(true);
-    showResult(false);
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, { displayName: name });
@@ -96,7 +89,6 @@ const AppProvider = ({ children }) => {
 
   const handleSignIn = async (navigate) => {
     setLoading(true);
-    showResult(false);
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const newToken = user.user.stsTokenManager.accessToken;
@@ -123,14 +115,6 @@ const AppProvider = ({ children }) => {
       console.log(error.message);
     }
   };
-  const loginWithGoogle = async () => {
-    try {
-      const res = await signInWithPopup(auth, googleProvider);
-      console.log(res.user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   const today = new Date();
   const year = today.getFullYear();
@@ -139,7 +123,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 18, second);
+  const future = new Date(year, month, date, hour, minute + 1, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -147,8 +131,8 @@ const AppProvider = ({ children }) => {
       const endpoint = future.getTime();
       const duration = endpoint - now;
       if (duration < 0) {
+        setIsTimeUp(true);
         setTime({ min: 0, sec: 0 });
-        showResult(true);
       } else {
         const oneMin = 1000 * 60;
         const min = Math.floor(duration / oneMin);
@@ -229,9 +213,6 @@ const AppProvider = ({ children }) => {
         }, 1000);
       }
     });
-
-    // showResult(true);
-    // setTime({ min: 0, sec: 0 });
   };
 
   const changeSubject = (sub) => {
@@ -251,8 +232,8 @@ const AppProvider = ({ children }) => {
   };
 
   const logout = (e) => {
+    setTime({ min: 0, sec: 0 });
     setQuiz(false);
-    showResult(false);
     setIndex(0);
     setCorrect(0);
     setResults([]);
@@ -267,7 +248,6 @@ const AppProvider = ({ children }) => {
         checkAnswer,
         alert,
         value,
-        result,
         submitExam,
         correct,
         time,
@@ -281,7 +261,6 @@ const AppProvider = ({ children }) => {
         changeAccess,
         quiz,
         setQuiz,
-        showResult,
         logout,
         results,
         anwser,
@@ -296,6 +275,8 @@ const AppProvider = ({ children }) => {
         signUpWithGoogle,
         loading,
         errorMsg,
+        isTimeUp,
+        setIsTimeUp,
       }}
     >
       {children}

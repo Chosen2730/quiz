@@ -3,14 +3,15 @@ import { Doughnut } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
-const SummaryChart = () => {
+const SummaryChart = ({ right, wrong, notAns }) => {
+  // console.log(right, wrong, notAns);
   const data = {
-    labels: ["Mathematics", "English", "Physics", "Chemistry", "Biology"],
+    labels: ["Correct Answers", "Wrong Answers", "Unanswered"],
     datasets: [
       {
         label: "My First Dataset",
-        data: [14, 12, 15, 34, 32],
-        backgroundColor: ["red", "blue", "green", "purple", "pink"],
+        data: [right, wrong, notAns],
+        backgroundColor: ["#1D1CE5", "#E0144C", "#FD841F"],
         hoverOffset: 4,
       },
     ],

@@ -17,13 +17,13 @@ const Question = ({ subject }) => {
       <div className='question_container' onClick={checkP}>
         <h5>{index + 1}. </h5>
         <div className='main_question'>
-          <h5 className='que'>{q}</h5>
-          <div className='option_div' ref={OPT}>
+          <h5 className='font-bold text-lg text-gray-300'>{q}</h5>
+          <div className='option_div text-gray-300' ref={OPT}>
             {opt.map((option, i) => {
               return (
                 <p
                   key={i}
-                  className='que_p '
+                  className='text-lg my-5'
                   style={{
                     backgroundColor:
                       log[index]?.option === option && log[index]?.selected
