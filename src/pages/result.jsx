@@ -5,6 +5,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import SummaryChart from "../components/summaryChart";
 import { useNavigate } from "react-router-dom";
+import logo from "../images/logo.png";
 
 const Result = () => {
   const { correct, questions, logout, results } = useGlobalContext();
@@ -17,17 +18,18 @@ const Result = () => {
   const navigate = useNavigate();
   return (
     <main className='bg-white max-w-6xl mx-auto p-3'>
-      <div className='px-8 py-4 shadow-md my-2 bg-gray-50'>
-        <div className='flex items-center gap-2 justify-end'>
-          <h2 className='font-medium text-sm'>Robinson Simon</h2>
+      <div className='px-8 py-4 shadow-md my-2 bg-gray-50 flex justify-between'>
+        <img src={logo} alt='logo' className='w-16 h-16' />
+        <div className='flex items-center gap-2'>
+          <h2 className='font-medium text-xs'>Robinson Simon</h2>
           <img
             src='https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png'
             alt='profile-img'
-            className='w-8 h-8 rounded-full object-cover border-2'
+            className='w-6 h-6 rounded-full object-cover border-2'
           />
           <a
             href='/'
-            className='p-3 w-10 h-10 rounded-md bg-pink-600 text-white ml-5 block'
+            className='p-3 w-8 h-8 rounded-md bg-pink-600 text-white ml-5 flex items-center justify-center'
           >
             <i>
               <AiOutlineLogout />

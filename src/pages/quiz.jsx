@@ -3,11 +3,9 @@ import { BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { MdAccessTime } from "react-icons/md";
 import { useGlobalContext } from "../context";
 import Question from "../components/question";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { IoTimerOutline } from "react-icons/io5";
-import Timer from "../components/timer";
-
+import logo from "../images/logo.png";
 const Quiz = () => {
   const navigate = useNavigate();
   const activeSub = useRef(null);
@@ -49,9 +47,7 @@ const Quiz = () => {
       <main className='max-w-6xl mx-auto'>
         <article className='main_quiz'>
           <div className='flex justify-between items-center bg-gray-900 p-4 rounded-xl'>
-            <h3 className='font-bold text-lg text-gray-300'>
-              Exam in Progress
-            </h3>
+            <img src={logo} alt='logo' className='w-20 h-20' />
 
             <div className='flex gap-2 items-center bg-pink-700 p-4 px-8 font-medium text-lg rounded-xl text-pink-200'>
               <i className='text-2xl'>

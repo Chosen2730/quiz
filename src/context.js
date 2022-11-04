@@ -26,11 +26,11 @@ const getRandomQuestions = (sub) => {
   }
   return subject;
 };
-const eng = getRandomQuestions(English).slice(0, 10);
-const chm = getRandomQuestions(chemistry).slice(0, 7);
-const bio = getRandomQuestions(biology).slice(0, 7);
-const phy = getRandomQuestions(physics).slice(0, 7);
-const math = getRandomQuestions(maths).slice(0, 9);
+const eng = getRandomQuestions(English).slice(0, 6);
+const chm = getRandomQuestions(chemistry).slice(0, 3);
+const bio = getRandomQuestions(biology).slice(0, 3);
+const phy = getRandomQuestions(physics).slice(0, 3);
+const math = getRandomQuestions(maths).slice(0, 5);
 const allQuestions = [...eng, ...chm, ...bio, ...phy, ...math];
 const allQue = getRandomQuestions(allQuestions);
 
@@ -50,7 +50,7 @@ const AppProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const [conFirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -123,7 +123,7 @@ const AppProvider = ({ children }) => {
   const hour = today.getHours();
   const second = today.getSeconds();
   const minute = today.getMinutes();
-  const future = new Date(year, month, date, hour, minute + 1, second);
+  const future = new Date(year, month, date, hour, minute + 9, second);
 
   useEffect(() => {
     const interval = setInterval(() => {
